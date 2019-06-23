@@ -6,12 +6,12 @@ const User = require('../../models/User');
 router.post('/', async (req, res) => {
 	const { user, password } = req.body;
 	await User.findOne({ user }).then(user => {
-		if (!user) return res.status(400).json({ msg: 'User Does not exist' });
+		if (!user) return res.status(400).json({ type: 'user', msg: 'User Does not exist' });
 		else {
 			if (password === user.password) {
 				return res.status(200).send('Success');
 			} else {
-				return res.status(400).json({ msg: 'Password Error' });
+				return res.status(400).json({ type: 'password', msg: 'Password Error' });
 			}
 		}
 	});

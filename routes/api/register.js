@@ -5,13 +5,12 @@ const User = require('../../models/User');
 
 router.post('/', async (req, res) => {
 	const { user, password } = req.body;
+	if (!user) return res.status(400).json({ type: 'user', msg: 'User cannot be empty' });
 	await User.findOne({ user }).then(user => {
-		if (user)
-			return res.status(400).send(`User is already registered.
-                    Please change your name`);
+		if (user) return res.status(400).json({ type: 'user', msg: 'User is already registered' });
 	});
 	if (password.length < 6) {
-		return res.status(400).send(`Password must be at least 6 charater`);
+		return res.status(400).json({ type: 'password', msg: 'Password must be at least 6 charater' });
 	} else {
 		const newUser = new User({ user: user, password: password });
 		newUser.save(err => {
