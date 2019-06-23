@@ -1,12 +1,21 @@
 import React, { useState } from 'react';
 import { Container, Col, Form, FormGroup, Label, Input, Button } from 'reactstrap';
 import { NavLink } from 'react-router-dom';
+import axios from 'axios';
 
 const Register = () => {
 	const [user, setUser] = useState('');
 	const [password, setPassword] = useState('');
 	const handleSubmit = e => {
 		e.preventDefault();
+		axios
+			.post('/api/register', { user: user, password: password })
+			.then(res => {
+				console.log(res.data);
+			})
+			.catch(err => {
+				console.log(err.response.data);
+			});
 	};
 	return (
 		<>

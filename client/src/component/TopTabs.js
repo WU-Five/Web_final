@@ -12,6 +12,16 @@ const TopTabs = () => {
 				{/* <Collapse navbar> */}
 				<Nav className="ml-auto" navbar>
 					<NavItem>
+						<NavLink tag={RRNavLink} to="/selfRoom" activeClassName="active">
+							SelfRoom
+						</NavLink>
+					</NavItem>
+					<NavItem>
+						<NavLink tag={RRNavLink} to="/publicRoom" activeClassName="active">
+							PublicRoom
+						</NavLink>
+					</NavItem>
+					<NavItem>
 						<NavLink tag={RRNavLink} to="/login" activeClassName="active">
 							Login
 						</NavLink>
