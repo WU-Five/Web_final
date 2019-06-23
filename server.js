@@ -7,7 +7,7 @@ const config = require('config');
 const app = express();
 
 // Bodyparser Middleware
-// app.use(express.json());
+app.use(express.json());
 
 // DB Config
 const db = config.get('mongoURI');
