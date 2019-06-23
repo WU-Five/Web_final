@@ -4,32 +4,30 @@ import { Navbar, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
 
 const TopTabs = () => {
 	return (
-		<>
-			<Navbar color="dark" dark expand="md">
-				<NavbarBrand tag={RRNavLink} to="/">
-					Home
-				</NavbarBrand>
-				{/* <Collapse navbar> */}
-				<Nav className="ml-auto" navbar>
-					<NavItem>
-						<NavLink tag={RRNavLink} to="/selfRoom" activeClassName="active">
-							SelfRoom
-						</NavLink>
-					</NavItem>
-					<NavItem>
-						<NavLink tag={RRNavLink} to="/publicRoom" activeClassName="active">
-							PublicRoom
-						</NavLink>
-					</NavItem>
-					<NavItem>
-						<NavLink tag={RRNavLink} to="/login" activeClassName="active">
-							Login
-						</NavLink>
-					</NavItem>
-				</Nav>
-				{/* </Collapse> */}
-			</Navbar>
-		</>
+		<Navbar color="dark" dark expand="md">
+			<NavbarBrand tag={RRNavLink} to="/">
+				Home
+			</NavbarBrand>
+			{/* <Collapse navbar> */}
+			<Nav className="ml-auto" navbar>
+				<NavItem>
+					<NavLink tag={RRNavLink} to="/selfRoom" activeClassName="active">
+						SelfRoom
+					</NavLink>
+				</NavItem>
+				<NavItem>
+					<NavLink tag={RRNavLink} to="/publicRoom" activeClassName="active">
+						PublicRoom
+					</NavLink>
+				</NavItem>
+				<NavItem>
+					<NavLink tag={RRNavLink} to="/login" activeClassName="active">
+						Login
+					</NavLink>
+				</NavItem>
+			</Nav>
+			{/* </Collapse> */}
+		</Navbar>
 	);
 };
 
