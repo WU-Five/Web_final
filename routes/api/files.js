@@ -5,7 +5,6 @@ const path = require('path');
 // const fs = require('fs');
 const multer  = require('multer')
 const File = require("../../models/File");
-const Item = require("../../models/Item");
 
 var file = path.join(__dirname, '../../pdf_File/');
 var storage = multer.diskStorage({
