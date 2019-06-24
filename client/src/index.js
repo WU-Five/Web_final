@@ -3,16 +3,19 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import { ContextProvider } from './context';
+import { UserContextProvider } from './context/userIndex';
+import { FileContextProvider } from './context/fileIndex';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter } from 'react-router-dom';
 
 ReactDOM.render(
-	<ContextProvider>
-		<BrowserRouter>
-			<App />
-		</BrowserRouter>
-	</ContextProvider>,
+	<UserContextProvider>
+		<FileContextProvider>
+			<BrowserRouter>
+				<App />
+			</BrowserRouter>
+		</FileContextProvider>
+	</UserContextProvider>,
 	document.getElementById('root')
 );
 

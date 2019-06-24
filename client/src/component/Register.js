@@ -1,7 +1,7 @@
 import React, { useState, useContext, useRef } from 'react';
 import { Container, Col, Form, FormGroup, Label, Input, Button } from 'reactstrap';
 import { NavLink, Redirect } from 'react-router-dom';
-import { Context } from '../context';
+import { Context } from '../context/userIndex';
 import axios from 'axios';
 
 const Register = () => {
