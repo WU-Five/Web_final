@@ -3,7 +3,6 @@ import './App.css';
 import TopTabs from './component/TopTabs';
 import Login from './component/Login';
 import Register from './component/Register';
-import Testupload from './component/Testupload';
 import Introduction from './component/Introduction';
 import SelfRoom from './container/SelfRoom';
 import PublicRoom from './container/PublicRoom';
@@ -20,9 +19,6 @@ function App() {
 				<Route path="/selfRoom" component={SelfRoom} />
 				<Route path="/publicRoom" component={PublicRoom} />
 			</Switch>
-			<div>
-				<Testupload />
-			</div>
 		</div>
 	);
 }

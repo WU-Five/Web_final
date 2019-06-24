@@ -17,7 +17,20 @@ var upload = multer({
 	storage: storage,
 });
 
-// router.use(bodyParser.raw({ type: 'application/pdf '}))
+// @route   GET api/files
+// @desc    GET pdf Files
+// @access  Private
+router.get('/', (req, res) => {
+  
+});
+
+// @route   GET api/files/:id
+// @desc    GET pdf File
+// @access  Private
+router.get('/:id', (req, res) => {
+  
+});
+
 
 // @route   POST api/files
 // @desc    POST pdf File
@@ -29,6 +42,6 @@ router.post('/', upload.any(), (req, res) => {
   });
 
   newFile.save().then(file => res.json(file.name));
-})
+});
 
 module.exports = router;

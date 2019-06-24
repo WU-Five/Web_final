@@ -13,10 +13,15 @@ router.post('/', async (req, res) => {
 		return res.status(400).json({ type: 'password', msg: 'Password must be at least 6 charater' });
 	} else {
 		const newUser = new User({ user: user, password: password });
-		newUser.save(err => {
-			if (err) console.error(err);
-		});
-		return res.status(200).send('Registration success');
+		newUser.save()
+			.then( user => {
+				res.json({
+					user: {
+						id: user.id,
+						name: user.user
+					}
+				});
+			});
 	}
 });
 
