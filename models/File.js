@@ -3,6 +3,10 @@ const Schema = mongoose.Schema;
 
 // Create Schema
 const FileSchema = new Schema({
+  path: {
+    type: String,
+    required: true
+  },  
   name: {
     type: String,
     required: true

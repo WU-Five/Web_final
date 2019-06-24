@@ -5,7 +5,6 @@ const path = require('path');
 // const fs = require('fs');
 const multer  = require('multer')
 const File = require("../../models/File");
-const Item = require("../../models/Item");
 
 var file = path.join(__dirname, '../../pdf_File/');
 var storage = multer.diskStorage({
@@ -25,7 +24,8 @@ var upload = multer({
 // @access  Private
 router.post('/', upload.any(), (req, res) => {
   const newFile = new File({
-    name: req.files[0].filename
+    path: req.files[0].filename,
+    name: req.files[0].originalname
   });
 
   newFile.save().then(file => res.json(file.name));
