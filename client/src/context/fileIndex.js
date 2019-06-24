@@ -16,7 +16,7 @@ function reducer(state, action) {
 		case 'DELETE_FILE':
 			return {
 			  ...state,
-			  files: state.files.filter(item => item._id !== action.payload)
+			  files: state.files.filter(item => item.path !== action.payload)
 			};
 		case 'ADD_FILE':
 			return {

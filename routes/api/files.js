@@ -46,7 +46,8 @@ var store = function(req, res ,next){
 // @desc    GET pdf Files
 // @access  Private
 router.get('/:user', (req, res) => {
-  
+  File.find({ "user": req.params.user })
+    .then(files => res.json(files))
 });
 
 // @route   GET api/files/:id
@@ -61,12 +62,32 @@ router.get('/:user/:id', (req, res) => {
 // @desc    POST pdf File
 // @access  Private
   router.post('/:user', store , (req, res) => {
-  const newFile = new File({
-    path: req.files[0].filename,
-    name: req.files[0].originalname
+    const newFile = new File({
+      path: req.files[0].filename,
+      name: req.files[0].originalname,
+      user: req.params.user
   });
 
   newFile.save().then(file => res.json(file));
+});
+
+// @route   DELETE api/file
+// @desc    DELETE pdf File
+// @access  Private
+router.delete('/:user/:path', (req, res) => {
+  const delete_path = path.join(file_path,req.params.user,'/',req.params.path);
+  fs.unlink(delete_path,(err) => {
+    if (err) {
+      console.error(err)
+    }
+  });
+  
+  File.findOne({ "path": req.params.path })
+    .then(file => file.remove().then(() => res.json({ success: true })))
+    .catch(err => {
+      console.log(err);
+      res.status(400).json({ success: false })
+    });
 });
 
 module.exports = router;
