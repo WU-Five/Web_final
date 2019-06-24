@@ -5,7 +5,7 @@ import { userContext } from '../context/userIndex';
 import axios from 'axios';
 
 const Register = () => {
-	const { state, dispatch } = useContext(userContext);
+	const { userstate, dispatch } = useContext(userContext);
 	const [user, setUser] = useState('');
 	const [password, setPassword] = useState('');
 	const userError = useRef('');
@@ -27,7 +27,7 @@ const Register = () => {
 				}
 			});
 	};
-	return state.isLogin ? (
+	return userstate.isLogin ? (
 		<Redirect to="/selfRoom" />
 	) : (
 		<Container>
