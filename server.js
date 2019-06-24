@@ -1,4 +1,3 @@
-
 const express = require('express');
 const mongoose = require('mongoose');
 const path = require('path');
@@ -14,16 +13,19 @@ const db = config.get('mongoURI');
 
 // Connect to Mongo
 mongoose
-  .connect(db, { 
-    useNewUrlParser: true,
-    useCreateIndex: true
-  }) // Adding new mongo url parser
-  .then(() => console.log('MongoDB Connected...'))
-  .catch(err => console.log(err));
+	.connect(db, {
+		useNewUrlParser: true,
+		useCreateIndex: true,
+	}) // Adding new mongo url parser
+	.then(() => console.log('MongoDB Connected...'))
+	.catch(err => console.log(err));
 
 // Use Routes
 app.use('/api/files', require('./routes/api/files'));
 
+app.use('/api/register', require('./routes/api/register'));
+
+app.use('/api/login', require('./routes/api/login'));
 
 // // Serve static assets if in production
 // if (process.env.NODE_ENV === 'production') {

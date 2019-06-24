@@ -8,13 +8,13 @@ const File = require("../../models/File");
 
 var file = path.join(__dirname, '../../pdf_File/');
 var storage = multer.diskStorage({
-  destination: file,
-  filename: function(req, file, cb){
-      cb(null, Date.now() + path.extname(file.originalname));
-  }
+	destination: file,
+	filename: function(req, file, cb) {
+		cb(null, Date.now() + path.extname(file.originalname));
+	},
 });
 var upload = multer({
-  storage: storage
+	storage: storage,
 });
 
 // router.use(bodyParser.raw({ type: 'application/pdf '}))

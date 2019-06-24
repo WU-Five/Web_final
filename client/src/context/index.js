@@ -3,13 +3,14 @@ import React, { createContext, useReducer } from 'react';
 const Context = createContext();
 
 const initValue = {
+	isLogin: false,
 	user: '',
 };
 
 function reducer(state, action) {
 	switch (action.type) {
 		case 'LOGIN':
-			return { ...state, ...{ user: action.payload.user } };
+			return { ...state, ...action.payload };
 		default:
 			return state;
 	}

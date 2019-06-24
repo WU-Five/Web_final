@@ -5,6 +5,8 @@ import Login from './component/Login';
 import Register from './component/Register';
 import Testupload from './component/Testupload';
 import Introduction from './component/Introduction';
+import SelfRoom from './container/SelfRoom';
+import PublicRoom from './container/PublicRoom';
 import { Switch, Route, Redirect } from 'react-router-dom';
 function App() {
 	return (
@@ -15,6 +17,8 @@ function App() {
 				<Route path="/introduction" component={Introduction} />
 				<Route path="/login" component={Login} />
 				<Route path="/register" component={Register} />
+				<Route path="/selfRoom" component={SelfRoom} />
+				<Route path="/publicRoom" component={PublicRoom} />
 			</Switch>
 			<div>
 				<Testupload />
