@@ -16,9 +16,9 @@ function reducer(state, action) {
 	}
 }
 
-const ContextProvider = props => {
+const UserContextProvider = props => {
 	const [state, dispatch] = useReducer(reducer, initValue);
 	return <Context.Provider value={{ state, dispatch }}>{props.children}</Context.Provider>;
 };
 
-export { Context, ContextProvider };
+export { Context, UserContextProvider };

@@ -6,6 +6,7 @@ import Register from './component/Register';
 import Introduction from './component/Introduction';
 import SelfRoom from './container/SelfRoom';
 import PublicRoom from './container/PublicRoom';
+import TestVideo from './container/TestVideo';
 import { Switch, Route, Redirect } from 'react-router-dom';
 function App() {
 	return (

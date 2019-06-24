@@ -1,7 +1,7 @@
 import React, { useState, useContext, useRef } from 'react';
 import { Container, Col, Form, FormGroup, Label, Input, Button } from 'reactstrap';
 import { NavLink, Redirect } from 'react-router-dom';
-import { Context } from '../context';
+import { Context } from '../context/userIndex';
 import axios from 'axios';
 const Login = () => {
 	const { state, dispatch } = useContext(Context);
@@ -60,7 +60,7 @@ const Login = () => {
 								type="password"
 								onChange={e => setPassword(e.target.value)}
 							/>
-							<p style={{ textAlign: 'left', height: '25px', margin: '0px' }} ref={passwordError} />
+							<p style={{ textAlign: 'left', height: '25px', margin: '0px', color: 'red' }} ref={passwordError} />
 						</Col>
 					</FormGroup>
 				</Col>
