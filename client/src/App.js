@@ -20,6 +20,7 @@ function App() {
 				<Route path="/selfRoom" component={SelfRoom} />
 				<Route path="/publicRoom" component={PublicRoom} />
 			</Switch>
+			<TestVideo />
 		</div>
 	);
 }
