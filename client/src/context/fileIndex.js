@@ -1,21 +1,36 @@
 import React, { createContext, useReducer } from 'react';
 
-const Context = createContext();
+const fileContext = createContext();
 
 const initValue = {
-	file: '',
+	files: []
 };
 
 function reducer(state, action) {
 	switch (action.type) {
+		case 'GET_FILES':
+			return {
+			  ...state,
+			  files: action.payload
+			};
+		case 'DELETE_FILE':
+			return {
+			  ...state,
+			  files: state.files.filter(item => item._id !== action.payload)
+			};
+		case 'ADD_FILE':
+			return {
+			  ...state,
+			  files: [action.payload, ...state.files]
+			};
 		default:
 			return state;
 	}
 }
 
 const FileContextProvider = props => {
-	const [state, dispatch] = useReducer(reducer, initValue);
-	return <Context.Provider value={{ state, dispatch }}>{props.children}</Context.Provider>;
+	const [ filestate, dispatch] = useReducer(reducer, initValue);
+	return <fileContext.Provider value={{ filestate, dispatch }}>{props.children}</fileContext.Provider>;
 };
 
-export { Context, FileContextProvider };
+export { fileContext, FileContextProvider };

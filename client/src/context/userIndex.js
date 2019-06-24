@@ -1,6 +1,6 @@
 import React, { createContext, useReducer } from 'react';
 
-const Context = createContext();
+const userContext = createContext();
 
 const initValue = {
 	isLogin: false,
@@ -17,8 +17,8 @@ function reducer(state, action) {
 }
 
 const UserContextProvider = props => {
-	const [state, dispatch] = useReducer(reducer, initValue);
-	return <Context.Provider value={{ state, dispatch }}>{props.children}</Context.Provider>;
+	const [ userstate, dispatch] = useReducer(reducer, initValue);
+	return <userContext.Provider value={{ userstate, dispatch }}>{props.children}</userContext.Provider>;
 };
 
-export { Context, UserContextProvider };
+export { userContext, UserContextProvider };

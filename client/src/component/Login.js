@@ -1,10 +1,10 @@
 import React, { useState, useContext, useRef } from 'react';
 import { Container, Col, Form, FormGroup, Label, Input, Button } from 'reactstrap';
 import { NavLink, Redirect } from 'react-router-dom';
-import { Context } from '../context/userIndex';
+import { userContext } from '../context/userIndex';
 import axios from 'axios';
 const Login = () => {
-	const { state, dispatch } = useContext(Context);
+	const { userstate, dispatch } = useContext( userContext);
 	const [user, setUser] = useState('');
 	const [password, setPassword] = useState('');
 	const userError = useRef('');
@@ -27,7 +27,7 @@ const Login = () => {
 				}
 			});
 	};
-	return state.isLogin ? (
+	return userstate.isLogin ? (
 		<Redirect to="/selfRoom" />
 	) : (
 		<Container>
