@@ -6,17 +6,16 @@ import { fileContext } from '../context/fileIndex';
 
 
 const SelfFile = () => {
-	// const { userstate } = useContext(userContext);
 	const { filestate, dispatch } = useContext(fileContext);
 
 	useEffect(() => {
 		axios
-			.get(`/api/files/${userstate.user}`)
+			.get(`/api/files/${localStorage.getItem('name')}`)
 			.then(res => {
 				dispatch({ type: 'GET_FILES', payload: res.data });
 			})
 			.catch(err => console.log(err));
-	}, [dispatch, userstate.user]);
+	}, [dispatch]);
 
 	const handleUpload = e => {
 		const dataForm = new FormData();
