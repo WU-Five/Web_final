@@ -10,6 +10,9 @@ const TopTabs = () => {
 		dispatch({ type: 'LOGOUT', payload: { user: '', isLogin: false } });
 	};
 
+	const getisLogin = () => {
+		return localStorage.getItem('isLogin') == 'true' ? true : false;
+	}
 	return (
 		<Navbar color="dark" dark expand="md">
 			<NavbarBrand tag={RRNavLink} to="/">
@@ -17,14 +20,14 @@ const TopTabs = () => {
 			</NavbarBrand>
 			{/* <Collapse navbar> */}
 			<Nav className="ml-auto" navbar>
-				{userstate.isLogin && (
+				{getisLogin() && (
 					<NavItem>
 						<NavLink tag={RRNavLink} to="/selfRoom" activeClassName="active">
 							SelfRoom
 						</NavLink>
 					</NavItem>
 				)}
-				{userstate.isLogin && (
+				{getisLogin() && (
 					<NavItem>
 						<NavLink tag={RRNavLink} to="/publicRoom" activeClassName="active">
 							PublicRoom
@@ -32,7 +35,7 @@ const TopTabs = () => {
 					</NavItem>
 				)}
 									
-				{userstate.isLogin ? (
+				{getisLogin() ? (
 					<NavItem>
 						<NavLink
 							tag={RRNavLink}

@@ -2,17 +2,16 @@ import React, { useContext, useEffect } from 'react';
 import { Container, ListGroup, ListGroupItem, Button } from 'reactstrap';
 import { NavLink } from 'react-router-dom';
 import axios from 'axios';
-import { userContext } from '../context/userIndex';
 import { fileContext } from '../context/fileIndex';
 
 
-const Testupload = () => {
-	const { userstate } = useContext(userContext);
+const SelfFile = () => {
+	// const { userstate } = useContext(userContext);
 	const { filestate, dispatch } = useContext(fileContext);
 
 	useEffect(()=>{
 		axios
-		.get(`/api/files/${userstate.user}`)
+		.get(`/api/files/${localStorage.getItem('name')}`)
 		.then(res => {
 			dispatch({ type: 'GET_FILES', payload: res.data });
 		})
@@ -23,7 +22,7 @@ const Testupload = () => {
 		const dataForm = new FormData();
 		dataForm.append('file', e.target.files[0]);
 		axios
-			.post(`/api/files/${userstate.user}`, dataForm)
+			.post(`/api/files/${localStorage.getItem('name')}`, dataForm)
 			.then(res => {
 				console.log(`Success upload ${res.data.name}`);
 				dispatch({ type: 'ADD_FILE', payload: res.data });
@@ -44,28 +43,28 @@ const Testupload = () => {
 	const { files } = filestate;
 	return (
 		<Container>
-		<h2>{userstate.user}</h2>
-		<ListGroup>
-			{files.map(({ user, name , path}) => (
-				<ListGroupItem key={path}>
-					<Button
-						className='remove-btn'
-						color='danger'
-						size='sm'
-						onClick={() => DeleteFile(user,path)}
-					>
-					&times;
-					</Button>
-					{`${user}: ${name}`}
-					<Button style={{ marginLeft: '5rem' }} to={`/FileRoom/${user}/${path}`} tag={NavLink}>
-						Edit
-					</Button>
+			<h2>{localStorage.getItem('name')}</h2>
+			<ListGroup>
+				{files.map(({ user, name , path}) => (
+					<ListGroupItem key={path} className='Selfpdf_list'>
+						<span style={{ float: 'left', marginTop: '0.2rem' }}>{`${user}: ${name}`}</span>
+						<Button
+							className='remove-btn'
+							color='danger'
+							size='sm'
+							onClick={() => DeleteFile(user,path)}
+						>
+						&times;
+						</Button>	
+						<Button className='edit-btn' to={`/FileRoom/${user}/${path}`} tag={NavLink}>
+							Edit
+						</Button>			
 				</ListGroupItem>
-			))}
-		</ListGroup>			
-		<input onChange={handleUpload} type="file" />
+				))}
+			</ListGroup>			
+			{/* <input onChange={handleUpload} type="file" /> */}
 		</Container>
 	);
 };
 
-export default Testupload;
+export default SelfFile;

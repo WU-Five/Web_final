@@ -10,8 +10,12 @@ const initValue = {
 function reducer(state, action) {
 	switch (action.type) {
 		case 'LOGIN':
+			localStorage.setItem('name',action.payload.user);
+			localStorage.setItem('isLogin',true);
 			return { ...state, ...action.payload };
 		case 'LOGOUT':
+			localStorage.removeItem('name');
+			localStorage.setItem('isLogin',false);
 			return { ...state, ...action.payload };
 		default:
 			return state;

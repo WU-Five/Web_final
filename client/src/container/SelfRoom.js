@@ -1,10 +1,12 @@
 import React from 'react';
-import Testupload from '../component/Testupload';
+import SelfFile from '../component/SelfFile';
+import UploadFile from '../component/UploadFile';
 
 const SelfRoom = () => {
 	return (
 		<div>
-			<Testupload />
+			<UploadFile/>
+			<SelfFile />
 		</div>
 	);
 };

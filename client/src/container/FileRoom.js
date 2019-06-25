@@ -2,7 +2,6 @@ import React,{ Component} from 'react';
 import { Container, Button } from 'reactstrap';
 import { NavLink } from 'react-router-dom';
 import { Document, Page, pdfjs } from 'react-pdf';
-import axios from 'axios';
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
 class FileRoom extends Component {
