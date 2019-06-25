@@ -5,19 +5,18 @@ import axios from 'axios';
 import { userContext } from '../context/userIndex';
 import { fileContext } from '../context/fileIndex';
 
-
 const Testupload = () => {
 	const { userstate } = useContext(userContext);
 	const { filestate, dispatch } = useContext(fileContext);
 
-	useEffect(()=>{
+	useEffect(() => {
 		axios
-		.get(`/api/files/${userstate.user}`)
-		.then(res => {
-			dispatch({ type: 'GET_FILES', payload: res.data });
-		})
-		.catch(err => console.log(err));
-	})
+			.get(`/api/files/${userstate.user}`)
+			.then(res => {
+				dispatch({ type: 'GET_FILES', payload: res.data });
+			})
+			.catch(err => console.log(err));
+	}, [dispatch, userstate.user]);
 
 	const handleUpload = e => {
 		const dataForm = new FormData();
@@ -31,39 +30,33 @@ const Testupload = () => {
 			.catch(err => console.log(err));
 	};
 
-	const DeleteFile = (user,path) => {
+	const DeleteFile = (user, path) => {
 		axios
-		.delete(`/api/files/${user}/${path}`)
-		.then(res => {
-			dispatch({ type: 'DELETE_FILE', payload: path });
-		})
-		.catch(err => console.log(err));
-	}
-
+			.delete(`/api/files/${user}/${path}`)
+			.then(res => {
+				dispatch({ type: 'DELETE_FILE', payload: path });
+			})
+			.catch(err => console.log(err));
+	};
 
 	const { files } = filestate;
 	return (
 		<Container>
-		<h2>{userstate.user}</h2>
-		<ListGroup>
-			{files.map(({ user, name , path}) => (
-				<ListGroupItem key={path}>
-					<Button
-						className='remove-btn'
-						color='danger'
-						size='sm'
-						onClick={() => DeleteFile(user,path)}
-					>
-					&times;
-					</Button>
-					{`${user}: ${name}`}
-					<Button style={{ marginLeft: '5rem' }} to={`/FileRoom/${user}/${path}`} tag={NavLink}>
-						Edit
-					</Button>
-				</ListGroupItem>
-			))}
-		</ListGroup>			
-		<input onChange={handleUpload} type="file" />
+			<h2>{userstate.user}</h2>
+			<ListGroup>
+				{files.map(({ user, name, path }, idx) => (
+					<ListGroupItem key={path + idx}>
+						<Button className="remove-btn" color="danger" size="sm" onClick={() => DeleteFile(user, path)}>
+							&times;
+						</Button>
+						{`${user}: ${name}`}
+						<Button style={{ marginLeft: '5rem' }} to={`/FileRoom/${user}/${path}`} tag={NavLink}>
+							Edit
+						</Button>
+					</ListGroupItem>
+				))}
+			</ListGroup>
+			<input onChange={handleUpload} type="file" />
 		</Container>
 	);
 };

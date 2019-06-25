@@ -5,15 +5,18 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { UserContextProvider } from './context/userIndex';
 import { FileContextProvider } from './context/fileIndex';
+import { VideoContextProvider } from './context/videoIndex';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter } from 'react-router-dom';
 
 ReactDOM.render(
 	<UserContextProvider>
 		<FileContextProvider>
-			<BrowserRouter>
-				<App />
-			</BrowserRouter>
+			<VideoContextProvider>
+				<BrowserRouter>
+					<App />
+				</BrowserRouter>
+			</VideoContextProvider>
 		</FileContextProvider>
 	</UserContextProvider>,
 	document.getElementById('root')
