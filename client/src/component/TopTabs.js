@@ -17,16 +17,21 @@ const TopTabs = () => {
 			</NavbarBrand>
 			{/* <Collapse navbar> */}
 			<Nav className="ml-auto" navbar>
-				<NavItem>
-					<NavLink tag={RRNavLink} to="/selfRoom" activeClassName="active">
-						SelfRoom
-					</NavLink>
-				</NavItem>
-				<NavItem>
-					<NavLink tag={RRNavLink} to="/publicRoom" activeClassName="active">
-						PublicRoom
-					</NavLink>
-				</NavItem>
+				{userstate.isLogin && (
+					<NavItem>
+						<NavLink tag={RRNavLink} to="/selfRoom" activeClassName="active">
+							SelfRoom
+						</NavLink>
+					</NavItem>
+				)}
+				{userstate.isLogin && (
+					<NavItem>
+						<NavLink tag={RRNavLink} to="/publicRoom" activeClassName="active">
+							PublicRoom
+						</NavLink>
+					</NavItem>
+				)}
+									
 				{userstate.isLogin ? (
 					<NavItem>
 						<NavLink

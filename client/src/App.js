@@ -22,7 +22,7 @@ function App() {
 				<Route path="/publicRoom" component={PublicRoom} />
 				<Route exact path="/FileRoom/:user/:path" component={FileRoom} />
 			</Switch>
-			<TestVideo />
+			{/* <TestVideo /> */}
 		</div>
 	);
 }

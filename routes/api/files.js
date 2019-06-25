@@ -53,8 +53,17 @@ router.get('/:user', (req, res) => {
 // @route   GET api/files/:id
 // @desc    GET pdf File
 // @access  Private
-router.get('/:user/:id', (req, res) => {
-  
+router.get('/:user/:path', (req, res) => {
+  const get_path = path.join(file_path,req.params.user,'/',req.params.path);
+  // const file = fs.createReadStream(get_path);
+  // const stat = fs.statSync(get_path);
+  // res.setHeader('Content-Length', stat.size);
+  // res.setHeader('Content-Type', 'application/pdf');
+  // res.setHeader('Content-Disposition', 'attachment; filename=quote.pdf');
+  // file.pipe(res);
+  const data =fs.readFileSync(get_path);
+  res.contentType("application/pdf");
+  res.send(data);
 });
 
 
