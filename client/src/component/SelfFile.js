@@ -9,14 +9,14 @@ const SelfFile = () => {
 	// const { userstate } = useContext(userContext);
 	const { filestate, dispatch } = useContext(fileContext);
 
-	useEffect(()=>{
+	useEffect(() => {
 		axios
-		.get(`/api/files/${localStorage.getItem('name')}`)
-		.then(res => {
-			dispatch({ type: 'GET_FILES', payload: res.data });
-		})
-		.catch(err => console.log(err));
-	})
+			.get(`/api/files/${userstate.user}`)
+			.then(res => {
+				dispatch({ type: 'GET_FILES', payload: res.data });
+			})
+			.catch(err => console.log(err));
+	}, [dispatch, userstate.user]);
 
 	const handleUpload = e => {
 		const dataForm = new FormData();
@@ -30,15 +30,14 @@ const SelfFile = () => {
 			.catch(err => console.log(err));
 	};
 
-	const DeleteFile = (user,path) => {
+	const DeleteFile = (user, path) => {
 		axios
-		.delete(`/api/files/${user}/${path}`)
-		.then(res => {
-			dispatch({ type: 'DELETE_FILE', payload: path });
-		})
-		.catch(err => console.log(err));
-	}
-
+			.delete(`/api/files/${user}/${path}`)
+			.then(res => {
+				dispatch({ type: 'DELETE_FILE', payload: path });
+			})
+			.catch(err => console.log(err));
+	};
 
 	const { files } = filestate;
 	return (
