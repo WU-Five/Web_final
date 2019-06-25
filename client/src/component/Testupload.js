@@ -1,5 +1,6 @@
 import React, { useContext, useEffect } from 'react';
 import { Container, ListGroup, ListGroupItem, Button } from 'reactstrap';
+import { NavLink } from 'react-router-dom';
 import axios from 'axios';
 import { userContext } from '../context/userIndex';
 import { fileContext } from '../context/fileIndex';
@@ -56,6 +57,9 @@ const Testupload = () => {
 					&times;
 					</Button>
 					{`${user}: ${name}`}
+					<Button style={{ marginLeft: '5rem' }} to={`/FileRoom/${user}/${path}`} tag={NavLink}>
+						Edit
+					</Button>
 				</ListGroupItem>
 			))}
 		</ListGroup>			

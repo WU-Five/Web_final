@@ -6,6 +6,7 @@ import Register from './component/Register';
 import Introduction from './component/Introduction';
 import SelfRoom from './container/SelfRoom';
 import PublicRoom from './container/PublicRoom';
+import FileRoom from './container/FileRoom';
 import TestVideo from './container/TestVideo';
 import { Switch, Route, Redirect } from 'react-router-dom';
 function App() {
@@ -19,6 +20,7 @@ function App() {
 				<Route path="/register" component={Register} />
 				<Route path="/selfRoom" component={SelfRoom} />
 				<Route path="/publicRoom" component={PublicRoom} />
+				<Route exact path="/FileRoom/:user/:path" component={FileRoom} />
 			</Switch>
 			<TestVideo />
 		</div>
