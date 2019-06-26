@@ -2,7 +2,6 @@ import React, { useState, useContext, useRef } from 'react';
 import axios from 'axios';
 import { ListGroupItem, Button, Modal, ModalHeader, ModalBody, Form, FormGroup, Label, Input } from 'reactstrap';
 import { videoContext } from '../context/videoIndex';
-import ModalVideo from 'react-modal-video';
 
 const DisplayVideos = props => {
 	const { user, name, path } = props;
@@ -39,7 +38,6 @@ const DisplayVideos = props => {
 			</Button>
 			<Modal isOpen={isOpen} toggle={() => setIsOpen(!isOpen)}>
 				<video src="" controls autoPlay ref={video} width="100%" />
-				{/* <ModalVideo channel="youtube" isOpen={isOpen} videoId="L61p2uyiMSo" onClose={() => setIsOpen(!isOpen)} /> */}
 			</Modal>
 		</ListGroupItem>
 	);
