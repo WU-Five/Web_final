@@ -40,6 +40,12 @@ var store = function(req, res, next) {
 		next();
 	});
 };
+// @route   GET api/files
+// @desc    GET pdf Files
+// @access  Public
+router.get('/', (req, res) => {
+	File.find({}).then(files => res.json(files));
+});
 
 // @route   GET api/files
 // @desc    GET pdf Files
