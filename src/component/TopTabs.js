@@ -19,7 +19,7 @@ const TopTabs = () => {
 				Home
 			</NavbarBrand>
 			{/* <Collapse navbar> */}
-			<Nav className="NavBar-li" navbar>
+			<Nav className="ml-auto" navbar>
 				{getisLogin() && (
 					<NavItem>
 						<NavLink tag={RRNavLink} to="/selfRoom" activeClassName="active">
