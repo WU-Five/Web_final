@@ -19,6 +19,7 @@ const PublicFile = () => {
 
 
 	const { files } = filestate;
+	const isprivate = false;
 	return (
 		<Container>
 			<h2>{localStorage.getItem('name')}</h2>
@@ -26,7 +27,7 @@ const PublicFile = () => {
 				{files.map(({ user, name , path}) => (
 					<ListGroupItem key={path} className='Selfpdf_list'>
 						<span style={{ float: 'left', marginTop: '0.2rem' }}>{`${user}: ${name}`}</span>
-						<Button className='edit-btn' to={`/FileRoom/${user}/${path}`} tag={NavLink}>
+						<Button className='edit-btn' to={`/FileRoom/${user}/${path}/${isprivate}`} tag={NavLink}>
 							See
 						</Button>			
 				</ListGroupItem>

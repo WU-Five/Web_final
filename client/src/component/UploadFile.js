@@ -1,5 +1,5 @@
 import React, { useState, useContext, useRef } from 'react';
-import { userContext } from '../context/userIndex';
+// import { userContext } from '../context/userIndex';
 import { fileContext } from '../context/fileIndex';
 import {
   Button,
@@ -8,14 +8,13 @@ import {
   ModalBody,
   Form,
   FormGroup,
-  Label,
   Input
 } from 'reactstrap';
 import axios from 'axios';
 
 
 const UploadFile = () => {
-  const { userstate } = useContext(userContext);
+  // const { userstate } = useContext(userContext);
   const { filestate, dispatch } = useContext(fileContext);
   const [modal, setModal] = useState(false);
   const [file, setFile] = useState('');

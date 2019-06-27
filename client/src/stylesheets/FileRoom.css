@@ -1,0 +1,32 @@
+.pdf_wrap{
+    border: 1px solid black;
+}
+
+.Utilpdf_wrap{
+    border: 1px solid salmon;
+}
+
+.Utilpdf_btn{
+    margin: 0.5rem;
+}
+
+.Showpdf_doc {
+	border-bottom:3px solid rgb(209, 97, 22);
+    border-right: 3px solid rgb(209, 97, 22);
+    border-left: 2px solid rgb(209, 97, 22);
+    border-top: 2px solid rgb(209, 97, 22);
+    box-shadow: 5px 5px 3px #999999;
+    border-bottom-right-radius: 15px;
+    border-radius:25px;
+	padding: 15px 25px;
+	display: inline-block;
+}
+
+.Showpdf_wrap {
+    border: 1px solid brown;
+}
+
+.Showpdf_footer {
+	display: inline;
+	margin: 0 auto;
+}

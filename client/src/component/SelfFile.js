@@ -17,17 +17,17 @@ const SelfFile = () => {
 			.catch(err => console.log(err));
 	}, [dispatch]);
 
-	const handleUpload = e => {
-		const dataForm = new FormData();
-		dataForm.append('file', e.target.files[0]);
-		axios
-			.post(`/api/files/${localStorage.getItem('name')}`, dataForm)
-			.then(res => {
-				console.log(`Success upload ${res.data.name}`);
-				dispatch({ type: 'ADD_FILE', payload: res.data });
-			})
-			.catch(err => console.log(err));
-	};
+	// const handleUpload = e => {
+	// 	const dataForm = new FormData();
+	// 	dataForm.append('file', e.target.files[0]);
+	// 	axios
+	// 		.post(`/api/files/${localStorage.getItem('name')}`, dataForm)
+	// 		.then(res => {
+	// 			console.log(`Success upload ${res.data.name}`);
+	// 			dispatch({ type: 'ADD_FILE', payload: res.data });
+	// 		})
+	// 		.catch(err => console.log(err));
+	// };
 
 	const DeleteFile = (user, path) => {
 		axios
@@ -39,6 +39,7 @@ const SelfFile = () => {
 	};
 
 	const { files } = filestate;
+	const isprivate = true;
 	return (
 		<Container>
 			<h2>{localStorage.getItem('name')}</h2>
@@ -54,7 +55,7 @@ const SelfFile = () => {
 						>
 						&times;
 						</Button>	
-						<Button className='edit-btn' to={`/FileRoom/${user}/${path}`} tag={NavLink}>
+						<Button className='edit-btn' to={`/FileRoom/${user}/${path}/${isprivate}`} tag={NavLink}>
 							Edit
 						</Button>			
 				</ListGroupItem>
