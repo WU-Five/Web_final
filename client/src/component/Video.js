@@ -1,8 +1,15 @@
 import React from 'react';
-import ReactPlayer from 'react-player';
-
+import DPlayer from 'react-dplayer';
 const Video = props => {
-	return <ReactPlayer className="react-player" url={props.videoURL} controls={true} width="1140px" height="641.25px" />;
+	return (
+		<DPlayer
+			video={{ url: props.videoURL }}
+			screenshot={true}
+			style={{ backgroundColor: 'white', margin: '5px' }}
+			width="1140px"
+			height="641.25px"
+		/>
+	);
 };
 
 export default Video;

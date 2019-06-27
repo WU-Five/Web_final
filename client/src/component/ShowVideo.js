@@ -1,6 +1,6 @@
-import React, { useState, useContext, useRef, useEffect } from 'react';
+import React, { useState, useContext } from 'react';
 import axios from 'axios';
-import { ListGroupItem, Button, Modal, ModalHeader, ModalBody, Form, FormGroup, Label, Input } from 'reactstrap';
+import { ListGroupItem, Button, Modal } from 'reactstrap';
 import { videoContext } from '../context/videoIndex';
 import Video from './Video';
 import './showVideo.css';
@@ -10,7 +10,6 @@ const DisplayVideos = props => {
 	const { dispatch } = useContext(videoContext);
 	const [isOpen, setIsOpen] = useState(false);
 	const [videoURL, setVideoURL] = useState(null);
-	const video = useRef(null);
 
 	const deleteFile = (user, path) => {
 		console.log('in');
@@ -24,9 +23,6 @@ const DisplayVideos = props => {
 
 	const getVideo = async (user, path) => {
 		await axios.get(`/api/videos/${user}/${path}`).then(res => {
-			// video.current.src = `/api/videos/${user}/${path}`;
-			// console.log(video.current);
-			// console.log(document.getElementById('123'));
 			setVideoURL(`/api/videos/${user}/${path}`);
 		});
 		setIsOpen(!isOpen);
