@@ -11,11 +11,11 @@ const TopTabs = () => {
 	};
 
 	const getisLogin = () => {
-		return localStorage.getItem('isLogin') === 'true' ? true : false;
-	};
+		return localStorage.getItem('isLogin') == 'true' ? true : false;
+	}
 	return (
-		<Navbar color="dark" dark expand="md">
-			<NavbarBrand tag={RRNavLink} to="/">
+		<Navbar dark expand="md">
+			<NavbarBrand tag={RRNavLink} to="/" className="Home">
 				Home
 			</NavbarBrand>
 			{/* <Collapse navbar> */}
@@ -34,7 +34,7 @@ const TopTabs = () => {
 						</NavLink>
 					</NavItem>
 				)}
-
+									
 				{getisLogin() ? (
 					<NavItem>
 						<NavLink
