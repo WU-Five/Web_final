@@ -1,12 +1,15 @@
-import React, { useState, useContext, useRef } from 'react';
+import React, { useState, useContext, useRef, useEffect } from 'react';
 import axios from 'axios';
 import { ListGroupItem, Button, Modal, ModalHeader, ModalBody, Form, FormGroup, Label, Input } from 'reactstrap';
 import { videoContext } from '../context/videoIndex';
+import Video from './Video';
+import './showVideo.css';
 
 const DisplayVideos = props => {
 	const { user, name, path } = props;
 	const { dispatch } = useContext(videoContext);
 	const [isOpen, setIsOpen] = useState(false);
+	const [videoURL, setVideoURL] = useState(null);
 	const video = useRef(null);
 
 	const deleteFile = (user, path) => {
@@ -19,10 +22,12 @@ const DisplayVideos = props => {
 			.catch(err => console.log(err));
 	};
 
-	const getVideo = (user, path) => {
-		axios.get(`/api/videos/${user}/${path}`).then(res => {
-			console.log('get video');
-			video.current.src = `/api/videos/${user}/${path}`;
+	const getVideo = async (user, path) => {
+		await axios.get(`/api/videos/${user}/${path}`).then(res => {
+			// video.current.src = `/api/videos/${user}/${path}`;
+			// console.log(video.current);
+			// console.log(document.getElementById('123'));
+			setVideoURL(`/api/videos/${user}/${path}`);
 		});
 		setIsOpen(!isOpen);
 	};
@@ -36,8 +41,8 @@ const DisplayVideos = props => {
 			<Button style={{ marginLeft: '5rem' }} onClick={() => getVideo(user, path)}>
 				Watch
 			</Button>
-			<Modal isOpen={isOpen} toggle={() => setIsOpen(!isOpen)}>
-				<video src="" controls autoPlay ref={video} width="100%" />
+			<Modal centered isOpen={isOpen} toggle={() => setIsOpen(!isOpen)} size="xl">
+				<Video videoURL={videoURL} />
 			</Modal>
 		</ListGroupItem>
 	);

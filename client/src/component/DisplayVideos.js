@@ -11,7 +11,7 @@ const DisplayVideos = () => {
 	console.log(videostate);
 	useLayoutEffect(() => {
 		axios
-			.get(`/api/videos/${userstate.user}`)
+			.get(`/api/videos/${localStorage.getItem('name')}`)
 			.then(res => {
 				dispatch({ type: 'GET_VIDEOS', payload: res.data });
 			})
