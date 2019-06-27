@@ -3,7 +3,7 @@ import axios from 'axios';
 import { ListGroupItem, Button, Modal } from 'reactstrap';
 import { videoContext } from '../context/videoIndex';
 import Video from './Video';
-import './showVideo.css';
+import '../stylesheets/showVideo.css';
 
 const DisplayVideos = props => {
 	const { user, name, path } = props;

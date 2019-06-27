@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './Introduction.css'
+import styles from '../stylesheets/Introduction.css';
 const Introduction = () => {
 	return (
 		<div style ={styles}>
