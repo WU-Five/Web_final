@@ -1,0 +1,52 @@
+.App {
+	text-align: center;
+}
+
+.remove-btn {
+	float: right;
+	margin-top: 0.2rem;
+}
+
+.edit-btn {
+	float: right;
+	margin-right: 0.5rem;
+}
+
+
+.Selfpdf_list{
+	margin: 0 auto;
+	width: 40rem;
+}
+
+.Showpdf {
+	border-bottom:3px solid rgb(209, 97, 22);
+    border-right: 3px solid rgb(209, 97, 22);
+    border-left: 2px solid rgb(209, 97, 22);
+    border-top: 2px solid rgb(209, 97, 22);
+    box-shadow: 5px 5px 3px #999999;
+    border-bottom-right-radius: 15px;
+    border-radius:25px;
+	padding: 15px 25px;
+	display: inline-block;
+}
+
+
+.Showpdf_footer {
+	display: inline;
+	margin: 0 auto;
+}
+.Home{
+        float: left;
+        padding: 24px 60px;
+        color: antiquewhite;
+        font-family:Papyrus;
+	}
+.NavBar-li{
+        padding: 10px 20px;
+        float: right;
+        font-size: 30px;
+        font-family:Papyrus;
+      }
+.NavBar-li:hover{ 
+        background-color: #7A918D;
+        opacity: 0.5; }
