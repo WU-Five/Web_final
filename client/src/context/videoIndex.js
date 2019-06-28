@@ -4,6 +4,7 @@ const videoContext = createContext();
 
 const initValue = {
 	videos: [],
+	isRecording: false,
 };
 
 function reducer(state, action) {
@@ -23,14 +24,24 @@ function reducer(state, action) {
 				...state,
 				videos: [action.payload, ...state.videos],
 			};
+		case 'START_RECORDING':
+			return {
+				...state,
+				...{ isRecording: action.payload },
+			};
+		case 'END_RECORDING':
+			return {
+				...state,
+				...{ isRecording: action.payload },
+			};
 		default:
 			return state;
 	}
 }
 
 const VideoContextProvider = props => {
-	const [videostate, dispatch] = useReducer(reducer, initValue);
-	return <videoContext.Provider value={{ videostate, dispatch }}>{props.children}</videoContext.Provider>;
+	const [videoState, dispatch] = useReducer(reducer, initValue);
+	return <videoContext.Provider value={{ videoState, dispatch }}>{props.children}</videoContext.Provider>;
 };
 
 export { videoContext, VideoContextProvider };
