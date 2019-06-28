@@ -48,7 +48,6 @@
         font-size: 40px;
         margin: 3rem;
         float:left;
-        padding-right: 63%;
     }
 .Selfpdf_list-title
 {
@@ -70,15 +69,15 @@
 .container{
         font-family:Papyrus;
         font-weight: 2000; 
-        padding:15rem 3rem;
         text-align:center;
-        line-height:80px;
     }
 
 .upload-button{
         font-family:Papyrus;
         font-weight: 2000; 
-        float:right;
-        margin-right: 12%;
-        margin-top: 15%;
+}
+.Selfpdf_list-div{
+        height: 7rem;
+        display:'inline-flex';
+        float:"left";
 }

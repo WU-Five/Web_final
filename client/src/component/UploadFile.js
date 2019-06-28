@@ -49,10 +49,10 @@ const UploadFile = () => {
   }
 
   return (
-    <div>
+    <div >
       <Button
         color='dark'
-        className = "upload-button"
+
         onClick={toggle}
   
       >

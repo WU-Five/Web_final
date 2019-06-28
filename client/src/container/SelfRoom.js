@@ -7,7 +7,6 @@ import Record from '../component/Record';
 const SelfRoom = () => {
 	return (
 		<div>
-			<UploadFile />
 			<SelfFile />
 		</div>
 	);

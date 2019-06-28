@@ -3,7 +3,7 @@ import { Container, ListGroup, ListGroupItem, Button } from 'reactstrap';
 import { NavLink } from 'react-router-dom';
 import axios from 'axios';
 import { fileContext } from '../context/fileIndex';
-
+import UploadFile from './UploadFile'
 const SelfFile = () => {
 	const { filestate, dispatch } = useContext(fileContext);
 
@@ -41,9 +41,10 @@ const SelfFile = () => {
 	const isprivate = true;
 	return (
 		<Container className='container'>
-			<div style={{display:'flex'}}>
+			<div className="Selfpdf_list-div">
 				<h1 className="Selfpdf_list-title">使用者:</h1>
 				<h2 className='Selfpdf_list-name'>{localStorage.getItem('name')}</h2>
+				<UploadFile className = "upload-button"/>
 			</div>
 			<ListGroup style={{border:'none'}} className='Selfpdf_list-group'>
 				{files.map(({ user, name, path }) => (
