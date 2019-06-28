@@ -40,7 +40,7 @@ const SelfFile = () => {
 	const { files } = filestate;
 	const isprivate = true;
 	return (
-		<Container>
+		<Container className='container'>
 			<h2>{localStorage.getItem('name')}</h2>
 			<ListGroup>
 				{files.map(({ user, name, path }) => (

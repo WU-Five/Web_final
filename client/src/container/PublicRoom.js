@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import PublicFile from '../component/PublicFile';
 import axios from 'axios';
-import '../stylesheets/PublicRoom.css';
+// import '../stylesheets/PublicRoom.css';
 
 const PublicRoom = () => {
 	const [users, setUsers] = useState([]);

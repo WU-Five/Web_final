@@ -2,12 +2,9 @@ import React, { useContext } from 'react';
 import { NavLink as RRNavLink } from 'react-router-dom';
 import { Navbar, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
 import { userContext } from '../context/userIndex';
-<<<<<<< HEAD
 import '../stylesheets/TopTabs.css'
 
-=======
 import { videoContext } from '../context/videoIndex';
->>>>>>> f29375a945d53ffe29928f170b66e93bbc51afa4
 const TopTabs = () => {
 	const { dispatch } = useContext(userContext);
 	const { videoState } = useContext(videoContext);
