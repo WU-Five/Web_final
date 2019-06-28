@@ -6,9 +6,14 @@ import { userContext } from '../context/userIndex';
 import axios from 'axios';
 
 const DisplayVideos = () => {
+<<<<<<< HEAD
 	// const { userstate } = useContext(userContext);
 	const { videostate, dispatch } = useContext(videoContext);
 	console.log(videostate);
+=======
+	const { userstate } = useContext(userContext);
+	const { videoState, dispatch } = useContext(videoContext);
+>>>>>>> d3ea51d402ecf41194fbe20b921812ab47c76f6a
 	useLayoutEffect(() => {
 		axios
 			.get(`/api/videos/${localStorage.getItem('name')}`)
@@ -20,7 +25,7 @@ const DisplayVideos = () => {
 	return (
 		<Container>
 			<ListGroup>
-				{videostate.videos.map(({ user, name, path }) => (
+				{videoState.videos.map(({ user, name, path }) => (
 					<ShowVideo user={user} name={name} path={path} key={path} />
 				))}
 			</ListGroup>

@@ -5,7 +5,7 @@ import { userContext } from '../context/userIndex';
 import { videoContext } from '../context/videoIndex';
 import ysFixWebmDuration from 'fix-webm-duration';
 
-const TestVideo = () => {
+const Record = () => {
 	const [recordVideo, setRecordVideo] = useState(null);
 	const [screen, setScreen] = useState(null);
 	const [audio, setAudio] = useState(null);
@@ -14,7 +14,6 @@ const TestVideo = () => {
 	const { dispatch } = useContext(videoContext);
 
 	const startRecording = () => {
-		console.log(navigator);
 		var constraints = { video: true };
 		if (!navigator.mediaDevices.getUserMedia && navigator.webkitGetUserMedia) {
 			navigator.mediaDevices.getUserMedia = navigator.webkitGetUserMedia;
@@ -31,7 +30,7 @@ const TestVideo = () => {
 					setRecordVideo(
 						RecordRTC([screenRes, audioRes], {
 							type: 'video',
-							mimeType: 'video/mp4',
+							mimeType: 'video/webm',
 						})
 					);
 				});
@@ -44,21 +43,20 @@ const TestVideo = () => {
 		if (recordVideo) {
 			setstartTime(Date.now());
 			recordVideo.startRecording();
+			dispatch({ type: 'START_RECORDING', payload: true });
 		}
-	}, [recordVideo]);
+	}, [dispatch, recordVideo]);
 
 	const stopRecording = async () => {
 		await recordVideo.stopRecording(() => {
 			var blob = recordVideo.getBlob();
 			const dataForm = new FormData();
 			var duration = Date.now() - startTime;
-			console.log(duration);
 			ysFixWebmDuration(blob, duration, fixedBlob => {
 				dataForm.append('file', fixedBlob);
 				axios
 					.post(`/api/videos/${localStorage.getItem('name')}`, dataForm)
 					.then(res => {
-						console.log(res.data);
 						console.log(`Success upload video`);
 						dispatch({ type: 'ADD_VIDEO', payload: res.data });
 					})
@@ -67,6 +65,7 @@ const TestVideo = () => {
 					});
 			});
 		});
+		dispatch({ type: 'END_RECORDING', payload: false });
 		[screen, audio].forEach(stream => {
 			stream.getTracks()[0].stop();
 		});
@@ -84,4 +83,4 @@ const TestVideo = () => {
 	);
 };
 
-export default TestVideo;
+export default Record;

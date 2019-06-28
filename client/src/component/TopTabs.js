@@ -2,24 +2,33 @@ import React, { useContext } from 'react';
 import { NavLink as RRNavLink } from 'react-router-dom';
 import { Navbar, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
 import { userContext } from '../context/userIndex';
-
+import { videoContext } from '../context/videoIndex';
 const TopTabs = () => {
-	const { userstate, dispatch } = useContext(userContext);
-
+	const { dispatch } = useContext(userContext);
+	const { videoState } = useContext(videoContext);
 	const handleLogout = () => {
 		dispatch({ type: 'LOGOUT', payload: { user: '', isLogin: false } });
 	};
 
 	const getisLogin = () => {
-		return localStorage.getItem('isLogin') == 'true' ? true : false;
-	}
+		return localStorage.getItem('isLogin') === 'true' ? true : false;
+	};
+
+	const getisRecording = () => {
+		return videoState.isRecording;
+	};
+
 	return (
 		<Navbar dark expand="md">
 			<NavbarBrand tag={RRNavLink} to="/" className="Home">
 				Home
 			</NavbarBrand>
-			{/* <Collapse navbar> */}
 			<Nav className="ml-auto" navbar>
+				{getisRecording() && (
+					<NavItem>
+						<div>Recording</div>
+					</NavItem>
+				)}
 				{getisLogin() && (
 					<NavItem>
 						<NavLink tag={RRNavLink} to="/selfRoom" activeClassName="active">
@@ -34,7 +43,7 @@ const TopTabs = () => {
 						</NavLink>
 					</NavItem>
 				)}
-									
+
 				{getisLogin() ? (
 					<NavItem>
 						<NavLink
@@ -55,7 +64,6 @@ const TopTabs = () => {
 					</NavItem>
 				)}
 			</Nav>
-			{/* </Collapse> */}
 		</Navbar>
 	);
 };
