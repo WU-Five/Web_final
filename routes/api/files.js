@@ -11,7 +11,7 @@ var file_path = path.join(__dirname, '../../pdf_File/');
 var store = function(req, res, next) {
 	var storage = multer.diskStorage({
 		destination: function(req, file, cb) {
-			upload_path = path.join(file_path, req.params.user, '/');
+			const upload_path = path.join(file_path, req.params.user, '/');
 			fs.exists(upload_path, exists => {
 				if (exists) {
 					cb(null, upload_path);

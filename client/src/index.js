@@ -7,6 +7,7 @@ import { UserContextProvider } from './context/userIndex';
 import { FileContextProvider } from './context/fileIndex';
 import { VideoContextProvider } from './context/videoIndex';
 import { UtilContextProvider } from './context/utilIndex';
+import { AnswerContextProvider } from './context/answerIndex';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'font-awesome/css/font-awesome.min.css';
 import { BrowserRouter } from 'react-router-dom';
@@ -16,9 +17,11 @@ ReactDOM.render(
 		<FileContextProvider>
 			<VideoContextProvider>
 				<UtilContextProvider>
-					<BrowserRouter>
-						<App />
-					</BrowserRouter>
+					<AnswerContextProvider>
+						<BrowserRouter>
+							<App />
+						</BrowserRouter>
+					</AnswerContextProvider>
 				</UtilContextProvider>
 			</VideoContextProvider>
 		</FileContextProvider>

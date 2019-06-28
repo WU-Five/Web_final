@@ -4,11 +4,12 @@ import { ListGroupItem, Button, Modal } from 'reactstrap';
 import { videoContext } from '../context/videoIndex';
 import Video from './Video';
 
-const DisplayVideos = props => {
-	const { user, name, path, pdf_name } = props;
+const ShowVideo = props => {
+	const { user , path, pdf_name, title , user_u} = props;
 	const { dispatch } = useContext(videoContext);
 	const [isOpen, setIsOpen] = useState(false);
 	const [videoURL, setVideoURL] = useState(null);
+
 
 	const deleteFile = () => {
 		axios
@@ -28,10 +29,10 @@ const DisplayVideos = props => {
 
 	return (
 		<ListGroupItem>
-			<Button className="remove-btn" color="danger" size="sm" onClick={() => deleteFile()}>
+			{/* <Button className="remove-btn" color="danger" size="sm" onClick={() => deleteFile()}>
 				&times;
-			</Button>
-			<div style={{ float:'left', fontSize: '1rem'}}>{`${user}: ${name}`}</div>
+			</Button> */}
+			<div style={{ float:'left', fontSize: '1rem'}}>{`${user_u}  ${title}`}</div>
 			<Button style={{ marginLeft: '2rem' }} onClick={() => getVideo()}>
 				Watch
 			</Button>
@@ -42,4 +43,4 @@ const DisplayVideos = props => {
 	);
 };
 
-export default DisplayVideos;
+export default ShowVideo;

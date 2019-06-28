@@ -24,7 +24,7 @@ const store = function(req, res, next) {
 		},
 		filename: function(req, file, cb) {
 			cb(null, Date.now() + path.extname(file.originalname));
-		},
+		}
 	});
 
 	var upload = multer({ storage: storage }).any();
@@ -87,6 +87,7 @@ router.get('/:user/:pdf_name/:path', (req, res) => {
 // // @desc    POST video File
 // // @access  Private
 router.post('/:user/:pdf_name/:page_num/:util_name', store, (req, res) => {
+	console.log(req.params);
 	const newVideo = new Video({
 		path: req.files[0].filename,
 		name: req.files[0].originalname,

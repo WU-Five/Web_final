@@ -13,15 +13,10 @@ function reducer(state, action) {
 			  ...state,
 			  utils: action.payload
 			};
-		case 'DELETE_UTIL':
-			return {
-			  ...state,
-			  utils: state.files.filter(item => item.path !== action.payload)
-			};
 		case 'ADD_UTIL':
 			return {
 			  ...state,
-			  utils: [action.payload, ...state.files]
+			  utils: [action.payload, ...state.utils]
 			};
 		default:
 			return state;
