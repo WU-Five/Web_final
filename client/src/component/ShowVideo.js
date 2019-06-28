@@ -28,14 +28,11 @@ const DisplayVideos = props => {
 	};
 
 	return (
-		<ListGroupItem>
+		<ListGroupItem onClick={() => getVideo(user, path)}>
 			<Button className="remove-btn" color="danger" size="sm" onClick={() => deleteFile(user, path)}>
 				&times;
 			</Button>
 			{`${user}: ${name}`}
-			<Button style={{ marginLeft: '5rem' }} onClick={() => getVideo(user, path)}>
-				Watch
-			</Button>
 			<Modal centered isOpen={isOpen} toggle={() => setIsOpen(!isOpen)} size="xl">
 				<Video videoURL={videoURL} />
 			</Modal>

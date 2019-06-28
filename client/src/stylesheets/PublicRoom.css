@@ -2,6 +2,7 @@
 	/* width: 300px; */
 	/* vertical-align: middle; */
 	white-space: nowrap;
+	margin-bottom: 1rem;
 	/* position: relative; */
 }
 
@@ -30,4 +31,21 @@
 	color: #4f5b66;
 
 	transition: all 0.55s ease;
+}
+
+.user_tag {
+	background: wheat;
+	/* width: 50rem; */
+	margin-left: 12rem;
+	margin-right: 12rem;
+	margin-bottom: 1.5rem;
+}
+
+.user_tag :hover {
+	cursor: pointer;
+}
+
+.tag_name {
+	text-align: left;
+	margin-left: 0.5rem;
 }

@@ -7,6 +7,7 @@ import { UserContextProvider } from './context/userIndex';
 import { FileContextProvider } from './context/fileIndex';
 import { VideoContextProvider } from './context/videoIndex';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'font-awesome/css/font-awesome.min.css';
 import { BrowserRouter } from 'react-router-dom';
 
 ReactDOM.render(
