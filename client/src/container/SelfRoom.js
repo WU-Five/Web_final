@@ -9,8 +9,6 @@ const SelfRoom = () => {
 		<div>
 			<UploadFile />
 			<SelfFile />
-			<DisplayVideos />
-			<Record />
 		</div>
 	);
 };

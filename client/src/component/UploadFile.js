@@ -52,8 +52,9 @@ const UploadFile = () => {
     <div>
       <Button
         color='dark'
-        style={{ marginBottom: '2rem', marginTop: '2rem' }}
+        className = "upload-button"
         onClick={toggle}
+  
       >
         Upload File
       </Button>

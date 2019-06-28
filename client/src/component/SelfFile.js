@@ -41,19 +41,24 @@ const SelfFile = () => {
 	const isprivate = true;
 	return (
 		<Container className='container'>
-			<h2>{localStorage.getItem('name')}</h2>
-			<ListGroup>
+			<div style={{display:'flex'}}>
+				<h1 className="Selfpdf_list-title">使用者:</h1>
+				<h2 className='Selfpdf_list-name'>{localStorage.getItem('name')}</h2>
+			</div>
+			<ListGroup style={{border:'none'}} className='Selfpdf_list-group'>
 				{files.map(({ user, name, path }) => (
-					<ListGroupItem
+					<div className="Selfpdf_list"><ListGroupItem
 						key={path}
-						className="Selfpdf_list"
+						style={{display:'flex',backgroundColor:'initial'}}
 						to={`/FileRoom/${user}/${path}/${isprivate}`}
-						tag={NavLink}>
-						<span style={{ float: 'left', marginTop: '0.2rem' }}>{`${user}: ${name}`}</span>
-						<Button className="remove-btn" color="danger" size="sm" onClick={() => DeleteFile(user, path)}>
-							&times;
-						</Button>
-					</ListGroupItem>
+						tag={NavLink}
+						
+						>
+							<span style={{ float: 'left' ,color:'antiquewhite', display:'flex',backgroundColor:'none'}} >{`${user}: ${name}`}</span>
+						</ListGroupItem>
+					<button className="remove-btn" onClick={() => DeleteFile(user, path)}>
+					&times;
+					</button></div>
 				))}
 			</ListGroup>
 			{/* <input onChange={handleUpload} type="file" /> */}
