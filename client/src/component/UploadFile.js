@@ -52,9 +52,7 @@ const UploadFile = () => {
     <div >
       <Button
         color='dark'
-
-        onClick={toggle}
-  
+        onClick={toggle}  
       >
         Upload File
       </Button>

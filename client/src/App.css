@@ -2,19 +2,7 @@
 	text-align: center;
 }
 
-.remove-btn {
-        float: left;
-        width: 5rem;
-        height: 100%;
-        background-color: darkred;
-        border:none;
-        border-radius: 1rem;
-        border-top-left-radius: 0px;
-        border-bottom-left-radius:0px;
-        border-color: darkred;
-        
-        color: aliceblue;
-}
+
 
 .edit-btn {
 	float: right;
@@ -22,41 +10,7 @@
 }
 
 
-.Selfpdf_list{
-        margin: 0 auto;
-        height: 6.5rem;
-        width: 60rem;
-        background-color:rgb(136, 135, 135,0.6) !important;
-        border:solid;
-        border-color: darkred !important;
-        border-radius: 1.2rem;
-        font-family:Papyrus;
-        float: left;
-        color: antiquewhite;
-        display:flex;
-        margin-bottom: 0.5rem;
-        justify-content: space-between;
-        font-size :2rem;
-}
 
-.Selfpdf_list-group{
-        border: 10rem;
-        float: left;
-}
-.Selfpdf_list-name{
-        color: antiquewhite;
-        font-size: 40px;
-        margin: 3rem;
-        float:left;
-    }
-.Selfpdf_list-title
-{
-        color: antiquewhite;
-        font-size: 40px;
-        margin: 3rem;
-        float:left;
-        font-family: "標楷體"
-}
 .footer {
         position: fixed;
         float:inline;
@@ -72,12 +26,4 @@
         text-align:center;
     }
 
-.upload-button{
-        font-family:Papyrus;
-        font-weight: 2000; 
-}
-.Selfpdf_list-div{
-        height: 7rem;
-        display:'inline-flex';
-        float:"left";
-}
+

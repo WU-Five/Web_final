@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom';
 import axios from 'axios';
 import { fileContext } from '../context/fileIndex';
 import UploadFile from './UploadFile'
+import '../stylesheets/SelfRoom.css'
 const SelfFile = () => {
 	const { filestate, dispatch } = useContext(fileContext);
 
