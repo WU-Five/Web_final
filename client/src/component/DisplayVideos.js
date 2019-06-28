@@ -19,8 +19,8 @@ const DisplayVideos = () => {
 	return (
 		<Container>
 			<ListGroup>
-				{videoState.videos.map(({ user, name, path }) => (
-					<ShowVideo user={user} name={name} path={path} key={path} />
+				{videoState.videos.map(({ user, name, path, pdf_name }) => (
+					<ShowVideo user={user} name={name} path={path} key={path} pdf_name={pdf_name} />
 				))}
 			</ListGroup>
 		</Container>

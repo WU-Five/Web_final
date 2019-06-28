@@ -4,10 +4,8 @@ import { Navbar, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
 import { userContext } from '../context/userIndex';
 import '../stylesheets/TopTabs.css';
 
-import { videoContext } from '../context/videoIndex';
 const TopTabs = () => {
 	const { dispatch } = useContext(userContext);
-	const { videoState } = useContext(videoContext);
 	const handleLogout = () => {
 		dispatch({ type: 'LOGOUT', payload: { user: '', isLogin: false } });
 	};
@@ -16,9 +14,7 @@ const TopTabs = () => {
 		return localStorage.getItem('isLogin') === 'true' ? true : false;
 	};
 
-	const getisRecording = () => {
-		return videoState.isRecording;
-	};
+
 
 	return (
 		<Navbar dark expand="md">
@@ -26,11 +22,6 @@ const TopTabs = () => {
 				Home
 			</NavbarBrand>
 			<Nav className="ml-auto" navbar>
-				{getisRecording() && (
-					<NavItem>
-						<div>Recording</div>
-					</NavItem>
-				)}
 				{getisLogin() && (
 					<NavItem className="TopTabs-NavBar-li">
 						<NavLink tag={RRNavLink} to="/selfRoom" activeClassName="active">

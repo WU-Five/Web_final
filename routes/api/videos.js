@@ -10,7 +10,7 @@ var video_path = path.join(__dirname, '../../video_File/');
 const store = function(req, res, next) {
 	const storage = multer.diskStorage({
 		destination: function(req, file, cb) {
-			const upload_path = path.join(video_path, req.params.user, '/');
+			const upload_path = path.join(video_path, req.params.user, '/', req.params.pdf_name, '/');
 			fs.exists(upload_path, exists => {
 				if (exists) {
 					cb(null, upload_path);
@@ -48,11 +48,11 @@ router.get('/:user', (req, res) => {
 // // @route   GET api/videos/:id
 // // @desc    GET video File
 // // @access  Private
-router.get('/:user/:path', (req, res) => {
+router.get('/:user/:pdf_name/:path', (req, res) => {
 	// console.log(req.params);
-	const { user, path } = req.params;
+	const { user, pdf_name, path } = req.params;
 	// res.writeHead(200, { 'Content-Type': 'video/webm' });
-	const videoPath = video_path + '/' + user + '/' + path;
+	const videoPath = video_path + '/' + user + '/' + pdf_name + '/' + path;
 	const stat = fs.statSync(videoPath);
 	const fileSize = stat.size;
 	const range = req.headers.range;
@@ -86,11 +86,14 @@ router.get('/:user/:path', (req, res) => {
 // // @route   POST api/videos
 // // @desc    POST video File
 // // @access  Private
-router.post('/:user', store, (req, res) => {
+router.post('/:user/:pdf_name/:page_num/:util_name', store, (req, res) => {
 	const newVideo = new Video({
 		path: req.files[0].filename,
 		name: req.files[0].originalname,
 		user: req.params.user,
+		pdf_name: req.params.pdf_name,
+		page_num: req.params.page_num,
+		util_name: req.params.util_name
 	});
 
 	newVideo.save().then(file => res.json(file));
@@ -99,8 +102,8 @@ router.post('/:user', store, (req, res) => {
 // // @route   DELETE api/videos
 // // @desc    DELETE video File
 // // @access  Private
-router.delete('/:user/:path', (req, res) => {
-	const delete_path = path.join(video_path, req.params.user, '/', req.params.path);
+router.delete('/:user/:pdf_name/:path', (req, res) => {
+	const delete_path = path.join(video_path, req.params.user, '/',req.params.pdf_name, '/', req.params.path);
 
 	fs.unlink(delete_path, err => {
 		if (err) {

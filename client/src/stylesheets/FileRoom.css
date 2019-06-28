@@ -1,9 +1,10 @@
-.pdf_wrap{
-    border: 1px solid black;
-}
+/* .pdf_wrap{
+    
+} */
 
 .Utilpdf_wrap{
-    border: 1px solid salmon;
+    height: 65rem;
+    border: 1px solid rgb(209, 97, 22);
 }
 
 .Utilpdf_btn{
@@ -22,9 +23,9 @@
 	display: inline-block;
 }
 
-.Showpdf_wrap {
-    border: 1px solid brown;
-}
+/* .Showpdf_wrap {
+
+} */
 
 .Showpdf_footer {
 	display: inline;

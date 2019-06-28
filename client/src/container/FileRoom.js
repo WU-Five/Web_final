@@ -31,7 +31,7 @@ class FileRoom extends Component {
   }
 
   getisprivate = (isprivate) => {
-		return isprivate == 'true' ? true : false;
+		return isprivate === 'true' ? true : false;
   }
   
   print_detail = () => {
@@ -48,7 +48,7 @@ class FileRoom extends Component {
       <Container className= "container pdf_wrap">
         <div className='row'>
           <FileUtil page={this.state.pageNumber} user={user} file={path}/>
-          <div className='col Showpdf_wrap'>
+          <div className='col-md-8 Showpdf_wrap'>
             <div>
               <Document
                 file= {`/api/files/${user}/${path}`}

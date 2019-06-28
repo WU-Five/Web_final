@@ -5,16 +5,28 @@ const Schema = mongoose.Schema;
 const VideoSchema = new Schema({
 	path: {
 		type: String,
-		required: true,
+		required: true
 	},
 	name: {
 		type: String,
-		required: true,
+		required: true
 	},
 	user: {
 		type: String,
-		required: true,
+		required: true
 	},
+	pdf_name: {
+		type: String,
+		required: true
+	},
+	page_num:{
+		type: Number,
+		required: true
+	},
+	util_name:{
+		type: String,
+		required: true
+	}
 });
 
 module.exports = Video = mongoose.model('video', VideoSchema);
