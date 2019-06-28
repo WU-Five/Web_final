@@ -49,10 +49,17 @@ const UploadFile = () => {
   }
 
   return (
-    <div >
+    <>
       <Button
         color='dark'
-        onClick={toggle}  
+        onClick={toggle} 
+        style={{
+          fontFamily:'Papyrus',
+          fontWeight: '2000',
+          padding:'1rem',
+          marginTop: '2.5rem',
+          fontSize:'20px',
+        }} 
       >
         Upload File
       </Button>
@@ -76,7 +83,7 @@ const UploadFile = () => {
           </Form>
         </ModalBody>
       </Modal>
-    </div>
+    </>
   );
 }
 
