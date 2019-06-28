@@ -8,7 +8,7 @@ import Introduction from './component/Introduction';
 import SelfRoom from './container/SelfRoom';
 import PublicRoom from './container/PublicRoom';
 import FileRoom from './container/FileRoom';
-// import TestVideo from './container/TestVideo';
+import TestVideo from './container/TestVideo';
 import { Switch, Route, Redirect } from 'react-router-dom';
 function App() {
 	return (
@@ -23,7 +23,7 @@ function App() {
 				<Route path="/publicRoom" component={PublicRoom} />
 				<Route exact path="/FileRoom/:user/:path/:isprivate" component={FileRoom} />
 			</Switch>
-			{/* <TestVideo /> */}
+			<TestVideo />
 		</div>
 	);
 }

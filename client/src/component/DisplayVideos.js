@@ -6,7 +6,7 @@ import { userContext } from '../context/userIndex';
 import axios from 'axios';
 
 const DisplayVideos = () => {
-	const { userstate } = useContext(userContext);
+	// const { userstate } = useContext(userContext);
 	const { videostate, dispatch } = useContext(videoContext);
 	console.log(videostate);
 	useLayoutEffect(() => {
@@ -16,7 +16,7 @@ const DisplayVideos = () => {
 				dispatch({ type: 'GET_VIDEOS', payload: res.data });
 			})
 			.catch(err => console.log(err));
-	}, [dispatch, userstate.user]);
+	}, [dispatch]);
 	return (
 		<Container>
 			<ListGroup>

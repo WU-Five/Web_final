@@ -10,7 +10,7 @@ const TestVideo = () => {
 	const [screen, setScreen] = useState(null);
 	const [audio, setAudio] = useState(null);
 	const [startTime, setstartTime] = useState(null);
-	const { userstate } = useContext(userContext);
+	// const { userstate } = useContext(userContext);
 	const { dispatch } = useContext(videoContext);
 
 	const startRecording = () => {
@@ -56,7 +56,7 @@ const TestVideo = () => {
 			ysFixWebmDuration(blob, duration, fixedBlob => {
 				dataForm.append('file', fixedBlob);
 				axios
-					.post(`/api/videos/${userstate.user}`, dataForm)
+					.post(`/api/videos/${localStorage.getItem('name')}`, dataForm)
 					.then(res => {
 						console.log(res.data);
 						console.log(`Success upload video`);
