@@ -1,15 +1,13 @@
 import React from 'react';
-import styles from '../stylesheets/Introduction.css';
+import '../stylesheets/Introduction.css';
 const Introduction = () => {
 	return (
-		<div style ={styles}>
-			<h1>Welcome To Our Website</h1>
+		<div >
+			<h1 className = 'home-title'>Welcome To Our Website</h1>
 			
-			<p>This is a final project made by Students</p>	
-			<p>Please login to start your adventure</p>
-			<div className="footer">
-				<p1>@ NTUEE Web Prog 2019</p1>
-        	</div>
+			<p className='home-content'>This is a final project made by Students</p>	
+			<p className='home-content'>Please login to start your adventure</p>
+			
  
 		</div>
 	);

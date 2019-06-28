@@ -3,6 +3,7 @@ import { Container, Col, Form, FormGroup, Label, Input, Button } from 'reactstra
 import { NavLink, Redirect } from 'react-router-dom';
 import { userContext } from '../context/userIndex';
 import axios from 'axios';
+import '../stylesheets/Register.css'
 
 const Register = () => {
 	const { userstate, dispatch } = useContext(userContext);
@@ -30,10 +31,10 @@ const Register = () => {
 	return userstate.isLogin ? (
 		<Redirect to="/selfRoom" />
 	) : (
-		<Container>
-			<h2>Register</h2>
+		<Container className='register'>
+			<h2 className ='register-title'>Register</h2>
 			<Form onSubmit={handleSubmit}>
-				<Col sm="12" md={{ size: 6, offset: 3 }}>
+				<Col md={{ size: 6, offset: 3 }} className='register-user'>
 					<FormGroup row style={{ marginTop: '10px', marginBottom: '0px' }}>
 						<Label sm="2" style={{ textAlign: 'left' }}>
 							User
@@ -50,7 +51,7 @@ const Register = () => {
 						</Col>
 					</FormGroup>
 				</Col>
-				<Col sm="12" md={{ size: 6, offset: 3 }}>
+				<Col  md={{ size: 6, offset: 3 }} className='register-password'>
 					<FormGroup row style={{ marginTop: '0px', marginBottom: '0px' }}>
 						<Label sm="2">Password</Label>
 						<Col sm="10">
@@ -65,10 +66,10 @@ const Register = () => {
 						</Col>
 					</FormGroup>
 				</Col>
-				<Button type="submit" style={{ margin: '10px' }}>
+				<Button type="submit"  className='register-button'>
 					Submit
 				</Button>
-				<Button style={{ margin: '10px' }} to="/login" tag={NavLink}>
+				<Button  to="/login" tag={NavLink} className ='register-button'>
 					Cancel
 				</Button>
 			</Form>

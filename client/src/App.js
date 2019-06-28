@@ -24,6 +24,9 @@ function App() {
 				<Route exact path="/FileRoom/:user/:path/:isprivate" component={FileRoom} />
 			</Switch>
 			{/* <TestVideo /> */}
+			<div className="footer">
+				<p>@ NTUEE Web Prog 2019</p>
+        	</div>
 		</div>
 	);
 }

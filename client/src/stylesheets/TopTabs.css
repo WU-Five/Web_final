@@ -1,0 +1,15 @@
+.TopTabs-home{
+    float: left;
+    padding: 24px 60px;
+    color: antiquewhite;
+    font-family:Papyrus;
+}
+.TopTabs-NavBar-li{
+    padding: 10px 20px;
+    font-size: 30px;
+    font-family:Papyrus;
+  }
+.TopTabs-NavBar-li:hover{ 
+    background-color: #7A918D;
+    opacity: 0.5; }
+   

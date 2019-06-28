@@ -1,8 +1,9 @@
 import React, { useState, useContext, useRef } from 'react';
-import { Container, Col, Form, FormGroup, Label, Input, Button } from 'reactstrap';
+import { Container, Col, Form, FormGroup, Label, Input, Button ,OverlayTrigger, Tooltip} from 'reactstrap';
 import { NavLink, Redirect } from 'react-router-dom';
 import { userContext } from '../context/userIndex';
 import axios from 'axios';
+import '../stylesheets/Login.css'
 const Login = () => {
 	const { userstate, dispatch } = useContext( userContext);
 	const [user, setUser] = useState('');
@@ -30,10 +31,10 @@ const Login = () => {
 	return userstate.isLogin ? (
 		<Redirect to="/selfRoom" />
 	) : (
-		<Container>
-			<h2>Sign In</h2>
-			<Form onSubmit={handleSubmit}>
-				<Col sm="12" md={{ size: 6, offset: 3 }}>
+		<Container className ="login">
+			<h2 className='login-title'>Sign In</h2>
+			<Form onSubmit={handleSubmit} >
+				<Col md={{ size: 6, offset: 3 }} className='login-user'>
 					<FormGroup row style={{ marginTop: '10px', marginBottom: '0px' }}>
 						<Label sm="2" style={{ textAlign: 'left' }}>
 							User
@@ -51,7 +52,7 @@ const Login = () => {
 					</FormGroup>
 				</Col>
 
-				<Col sm="12" md={{ size: 6, offset: 3 }}>
+				<Col md={{ size: 6, offset: 3 }} className='login-password'>
 					<FormGroup row style={{ marginTop: '0px', marginBottom: '0px' }}>
 						<Label sm="2">Password</Label>
 						<Col sm="10">
@@ -64,11 +65,11 @@ const Login = () => {
 						</Col>
 					</FormGroup>
 				</Col>
-				<Button type="submit" style={{ margin: '10px' }}>
+				<Button type="submit" className='login-button'>
 					Submit
 				</Button>
-				<Button style={{ margin: '10px' }} to={'/register'} tag={NavLink}>
-					Register
+				<Button  to={'/register'} tag={NavLink} className='login-button'>
+					<span>Register</span>
 				</Button>
 			</Form>
 		</Container>
