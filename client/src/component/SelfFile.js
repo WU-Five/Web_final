@@ -44,13 +44,14 @@ const SelfFile = () => {
 			<h2>{localStorage.getItem('name')}</h2>
 			<ListGroup>
 				{files.map(({ user, name, path }) => (
-					<ListGroupItem key={path} className="Selfpdf_list">
+					<ListGroupItem
+						key={path}
+						className="Selfpdf_list"
+						to={`/FileRoom/${user}/${path}/${isprivate}`}
+						tag={NavLink}>
 						<span style={{ float: 'left', marginTop: '0.2rem' }}>{`${user}: ${name}`}</span>
 						<Button className="remove-btn" color="danger" size="sm" onClick={() => DeleteFile(user, path)}>
 							&times;
-						</Button>
-						<Button className="edit-btn" to={`/FileRoom/${user}/${path}/${isprivate}`} tag={NavLink}>
-							Edit
 						</Button>
 					</ListGroupItem>
 				))}
