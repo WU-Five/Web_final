@@ -22,7 +22,7 @@ const TopTabs = () => {
 
 	return (
 		<Navbar dark expand="md">
-			<NavbarBrand tag={RRNavLink} to="/" className="TopTabs-home">
+			<NavbarBrand tag={RRNavLink} to="/" className="TopTabs-home" >
 				Home
 			</NavbarBrand>
 			<Nav className="ml-auto" navbar>
