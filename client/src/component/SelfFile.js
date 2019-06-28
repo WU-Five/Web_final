@@ -60,7 +60,7 @@ const SelfFile = () => {
 									color: 'antiquewhite',
 									display: 'flex',
 									backgroundColor: 'none',
-								}}>{`${user}: ${name}`}</span>
+								}}>{`${name}`}</span>
 						</ListGroupItem>
 						<button className="remove-btn" onClick={() => DeleteFile(user, path)}>
 							&times;

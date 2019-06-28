@@ -34,11 +34,17 @@
 }
 
 .user_tag {
-	background: rgba(247, 251, 4, 0.6);
+	background: rgba(116, 115, 115, 0.8);
 	/* width: 50rem; */
+	border: inset;
+	border-radius:1rem;
+	border-color: darkgreen;
+	display:"flex";
+	text-align: center;
+	height: 6rem;
 	margin-left: 12rem;
 	margin-right: 12rem;
-	margin-bottom: 3rem;
+	margin-bottom: 1rem;
 }
 
 .user_tag :hover {
@@ -47,15 +53,25 @@
 
 .tag_name {
 	text-align: left;
+	font-size: 2rem;
 	margin-left: 0.5rem;
+	color: ghostwhite;
+}
+.tag_files{
+	text-align: right;
+	font-size: 1.15rem;
+	padding-bottom: 3rem;
+
+	color: lightgrey;
 }
 .Publicpdf_list{
+	
     margin: 0 auto;
-    height: 6.5rem;
-    width: 60rem;
-    background-color:rgb(136, 135, 135,0.6) !important;
+    height: 4rem;
+    width: 30rem;
+    background-color:rgb(40, 40, 40,0.6) !important;
     border:solid;
-    border-color: darkred !important;
+    border-color: darkcyan !important;
     border-radius: 1.2rem !important;
     font-family:Papyrus;
     float: left;
@@ -63,5 +79,5 @@
     display:flex;
     margin-bottom: 0.5rem !important;
     justify-content: space-between;
-    font-size :2rem;
+    font-size :1.5rem;
 }

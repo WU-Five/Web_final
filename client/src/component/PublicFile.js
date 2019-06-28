@@ -21,8 +21,10 @@ const PublicFile = props => {
 		<Container>
 			<div className="user_tag" onClick={() => setIsOpen(!isOpen)}>
 				<p className="tag_name">
-					{user}:
-					{files.length}
+					User:{user}  
+				</p>
+				<p className="tag_files">
+					Uploaded Files:{files.length}
 				</p>
 			</div>
 			<Collapse isOpen={isOpen}>
@@ -33,7 +35,7 @@ const PublicFile = props => {
 							className="Publicpdf_list"
 							to={`/FileRoom/${user}/${path}/${isprivate}`}
 							tag={NavLink}>
-							<span style={{ float: 'left', marginTop: '0.2rem' }}>{`${user}: ${name}`}</span>
+							<span style={{ float: 'left', marginTop: '0.2rem' }}>{`${name}`}</span>
 						</ListGroupItem>
 					))}
 				</ListGroup>
