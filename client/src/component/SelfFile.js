@@ -1,5 +1,5 @@
 import React, { useContext, useLayoutEffect } from 'react';
-import { Container, ListGroup, ListGroupItem, Button } from 'reactstrap';
+import { Container, ListGroup, ListGroupItem } from 'reactstrap';
 import { NavLink } from 'react-router-dom';
 import axios from 'axios';
 import { fileContext } from '../context/fileIndex';
