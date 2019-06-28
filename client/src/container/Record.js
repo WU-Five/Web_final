@@ -5,7 +5,7 @@ import { userContext } from '../context/userIndex';
 import { videoContext } from '../context/videoIndex';
 import ysFixWebmDuration from 'fix-webm-duration';
 
-const TestVideo = () => {
+const Record = () => {
 	const [recordVideo, setRecordVideo] = useState(null);
 	const [screen, setScreen] = useState(null);
 	const [audio, setAudio] = useState(null);
@@ -55,7 +55,7 @@ const TestVideo = () => {
 			ysFixWebmDuration(blob, duration, fixedBlob => {
 				dataForm.append('file', fixedBlob);
 				axios
-					.post(`/api/videos/${userstate.user}`, dataForm)
+					.post(`/api/videos/${localStorage.getItem('name')}`, dataForm)
 					.then(res => {
 						console.log(`Success upload video`);
 						dispatch({ type: 'ADD_VIDEO', payload: res.data });
@@ -83,4 +83,4 @@ const TestVideo = () => {
 	);
 };
 
-export default TestVideo;
+export default Record;
