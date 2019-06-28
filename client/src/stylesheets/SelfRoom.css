@@ -20,10 +20,10 @@
     margin: 0 auto;
     height: 4.5rem;
     width: 60rem;
-    background-color:rgb(136, 135, 135,0.6) !important;
+    background-color:rgb(136, 135, 135,0.6) ;
     border:solid;
-    border-color: darkred !important;
-    border-radius: 1.2rem !important;
+    border-color: darkred ;
+    border-radius: 1.2rem ;
     font-family:Papyrus;
     float: left;
     color: antiquewhite;

@@ -60,7 +60,7 @@ class FileRoom extends Component {
             </div>
             <div className='row Showpdf_footer'>
               <div className='col'><Button onClick={this.goToPrevPage}>Prev</Button></div>          
-              <div className='col' style={{ marginTop: '0.7rem'}} >Page {pageNumber} of {numPages}</div>
+              <div className='col' style={{ marginTop: '0.7rem',color:'antiquewhite'}} >Page {pageNumber} of {numPages}</div>
               <div className='col'><Button onClick={this.goToNextPage}>Next</Button></div>          
             </div>
             {this.getisprivate(isprivate)?(
