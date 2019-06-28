@@ -7,8 +7,7 @@ import axios from 'axios';
 
 const DisplayVideos = () => {
 	const { userstate } = useContext(userContext);
-	const { videostate, dispatch } = useContext(videoContext);
-	console.log(videostate);
+	const { videoState, dispatch } = useContext(videoContext);
 	useLayoutEffect(() => {
 		axios
 			.get(`/api/videos/${localStorage.getItem('name')}`)
@@ -20,7 +19,7 @@ const DisplayVideos = () => {
 	return (
 		<Container>
 			<ListGroup>
-				{videostate.videos.map(({ user, name, path }) => (
+				{videoState.videos.map(({ user, name, path }) => (
 					<ShowVideo user={user} name={name} path={path} key={path} />
 				))}
 			</ListGroup>
