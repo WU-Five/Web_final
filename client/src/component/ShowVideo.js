@@ -5,35 +5,34 @@ import { videoContext } from '../context/videoIndex';
 import Video from './Video';
 
 const DisplayVideos = props => {
-	const { user, name, path } = props;
+	const { user, name, path, pdf_name } = props;
 	const { dispatch } = useContext(videoContext);
 	const [isOpen, setIsOpen] = useState(false);
 	const [videoURL, setVideoURL] = useState(null);
 
-	const deleteFile = (user, path) => {
-		console.log('in');
+	const deleteFile = () => {
 		axios
-			.delete(`/api/videos/${user}/${path}`)
+			.delete(`/api/videos/${user}/${pdf_name}/${path}`)
 			.then(res => {
 				dispatch({ type: 'DELETE_VIDEO', payload: path });
 			})
 			.catch(err => console.log(err));
 	};
 
-	const getVideo = async (user, path) => {
-		await axios.get(`/api/videos/${user}/${path}`).then(res => {
-			setVideoURL(`/api/videos/${user}/${path}`);
+	const getVideo = async () => {
+		await axios.get(`/api/videos/${user}/${pdf_name}/${path}`).then(res => {
+			setVideoURL(`/api/videos/${user}/${pdf_name}/${path}`);
 		});
 		setIsOpen(!isOpen);
 	};
 
 	return (
 		<ListGroupItem>
-			<Button className="remove-btn" color="danger" size="sm" onClick={() => deleteFile(user, path)}>
+			<Button className="remove-btn" color="danger" size="sm" onClick={() => deleteFile()}>
 				&times;
 			</Button>
-			{`${user}: ${name}`}
-			<Button style={{ marginLeft: '5rem' }} onClick={() => getVideo(user, path)}>
+			<div style={{ float:'left', fontSize: '1rem'}}>{`${user}: ${name}`}</div>
+			<Button style={{ marginLeft: '2rem' }} onClick={() => getVideo()}>
 				Watch
 			</Button>
 			<Modal centered isOpen={isOpen} toggle={() => setIsOpen(!isOpen)} size="xl">

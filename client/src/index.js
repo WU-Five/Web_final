@@ -6,6 +6,7 @@ import * as serviceWorker from './serviceWorker';
 import { UserContextProvider } from './context/userIndex';
 import { FileContextProvider } from './context/fileIndex';
 import { VideoContextProvider } from './context/videoIndex';
+import { UtilContextProvider } from './context/utilIndex';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter } from 'react-router-dom';
 
@@ -13,9 +14,11 @@ ReactDOM.render(
 	<UserContextProvider>
 		<FileContextProvider>
 			<VideoContextProvider>
-				<BrowserRouter>
-					<App />
-				</BrowserRouter>
+				<UtilContextProvider>
+					<BrowserRouter>
+						<App />
+					</BrowserRouter>
+				</UtilContextProvider>
 			</VideoContextProvider>
 		</FileContextProvider>
 	</UserContextProvider>,

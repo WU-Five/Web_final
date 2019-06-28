@@ -1,17 +1,31 @@
 import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import RecordRTC from 'recordrtc';
-import { userContext } from '../context/userIndex';
 import { videoContext } from '../context/videoIndex';
 import ysFixWebmDuration from 'fix-webm-duration';
 
-const Record = () => {
+const Record = (props) => {
+	const {pdf_name, page_num, util_name, Ref } = props;
 	const [recordVideo, setRecordVideo] = useState(null);
 	const [screen, setScreen] = useState(null);
 	const [audio, setAudio] = useState(null);
 	const [startTime, setstartTime] = useState(null);
+	const [uploadDone, setUploadDone] = useState(false);
 	// const { userstate } = useContext(userContext);
-	const { dispatch } = useContext(videoContext);
+	const { videoState, dispatch } = useContext(videoContext);
+
+
+	useEffect(() => {
+		if (recordVideo) {
+			setstartTime(Date.now());
+			recordVideo.startRecording();
+			dispatch({ type: 'START_RECORDING', payload: true });
+		}
+	}, [dispatch, recordVideo]);
+
+	const getisRecording = () => {
+		return videoState.isRecording;
+	};
 
 	const startRecording = () => {
 		var constraints = { video: true };
@@ -39,13 +53,6 @@ const Record = () => {
 				console.log(err);
 			});
 	};
-	useEffect(() => {
-		if (recordVideo) {
-			setstartTime(Date.now());
-			recordVideo.startRecording();
-			dispatch({ type: 'START_RECORDING', payload: true });
-		}
-	}, [dispatch, recordVideo]);
 
 	const stopRecording = async () => {
 		await recordVideo.stopRecording(() => {
@@ -55,9 +62,11 @@ const Record = () => {
 			ysFixWebmDuration(blob, duration, fixedBlob => {
 				dataForm.append('file', fixedBlob);
 				axios
-					.post(`/api/videos/${localStorage.getItem('name')}`, dataForm)
+					.post(`/api/videos/${localStorage.getItem('name')}/${pdf_name}/${page_num}/${util_name}`, dataForm)
 					.then(res => {
 						console.log(`Success upload video`);
+						Ref.current = res.data.path;
+						setUploadDone(true);
 						dispatch({ type: 'ADD_VIDEO', payload: res.data });
 					})
 					.catch(err => {
@@ -73,12 +82,18 @@ const Record = () => {
 
 	return (
 		<div>
-			<button onClick={() => startRecording()} id="btn-start-recording">
+			<button type='button' onClick={() => startRecording()} id="btn-start-recording">
 				start
 			</button>
-			<button onClick={() => stopRecording()} id="btn-stop-recording">
+			<button type='button' onClick={() => stopRecording()} id="btn-stop-recording">
 				stop
 			</button>
+			{getisRecording() && (
+				<p style={{ textAlign: 'center',height:'1rem', fontSize: '1rem', color: 'red' }}> recording </p>
+			)}
+			{uploadDone && (
+				<p style={{ textAlign: 'center',height:'1rem', fontSize: '1rem', color: 'red' }}> Ok </p>
+			)}
 		</div>
 	);
 };
