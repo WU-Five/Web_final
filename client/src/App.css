@@ -2,10 +2,7 @@
 	text-align: center;
 }
 
-.remove-btn {
-	float: right;
-	margin-top: 0.2rem;
-}
+
 
 .edit-btn {
 	float: right;
@@ -13,23 +10,20 @@
 }
 
 
-.Selfpdf_list{
-	margin: 0 auto;
-	width: 40rem;
-}
 
-.Home{
-        float: left;
-        padding: 24px 60px;
-        color: antiquewhite;
-        font-family:Papyrus;
-	}
-.NavBar-li{
-        padding: 10px 20px;
-        float: right;
-        font-size: 30px;
+.footer {
+        position: fixed;
+        float:inline;
+        bottom: 0;
+        width: 100%;
+        color:burlywood;
+        text-align: center;
         font-family:Papyrus;
       }
-.NavBar-li:hover{ 
-        background-color: #7A918D;
-        opacity: 0.5; }
+.container{
+        font-family:Papyrus;
+        font-weight: 2000; 
+        text-align:center;
+    }
+
+

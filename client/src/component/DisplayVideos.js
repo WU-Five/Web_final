@@ -6,7 +6,6 @@ import { userContext } from '../context/userIndex';
 import axios from 'axios';
 
 const DisplayVideos = () => {
-	// const { userstate } = useContext(userContext);
 	const { videoState, dispatch } = useContext(videoContext);
 
 	useLayoutEffect(() => {

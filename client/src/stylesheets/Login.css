@@ -1,0 +1,44 @@
+.login{
+    font-family:Papyrus;
+    font-weight: 2000; 
+    padding:15rem 3rem;
+    text-align:center;
+    line-height:80px;
+}
+.login-title{
+    color: antiquewhite;
+    font-size: 40px;
+    margin: 3rem;
+}
+.login-user{
+    color: antiquewhite;
+    margin: 3rem;
+    font-size: 20px;
+
+}
+.login-password{
+    color: antiquewhite;
+    margin: 0.25rem;
+    font-size: 20px;
+}
+.login-button{
+    font-size :2rem;
+    font-weight: bolder;
+    font-family: inherit;
+    text-align: top;
+    padding-top: -5px;
+    outline: none;
+    border: none;
+    border-radius: 20px;
+    color: antiquewhite;
+    border-color: antiquewhite;
+    margin-right: 4rem;
+    margin-left: 4rem;
+    text-decoration: underline;
+    
+}
+.login-button:hover {
+    cursor: pointer;
+    border: inline-block;
+    border-radius: 50px;
+  }

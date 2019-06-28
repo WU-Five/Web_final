@@ -1,0 +1,83 @@
+.container-3 {
+	/* width: 300px; */
+	/* vertical-align: middle; */
+	white-space: nowrap;
+	margin-bottom: 1rem;
+	/* position: relative; */
+}
+
+.container-3 input#search {
+	width: 300px;
+	height: 50px;
+	background: #2b303b;
+	border: none;
+	font-size: 10pt;
+	/* float: left; */
+	color: #262626;
+	padding-left: 45px;
+	border-radius: 5px;
+	color: #fff;
+}
+.container-3 input#search {
+	color: #65737e;
+}
+
+.container-3 .icon {
+	position: absolute;
+	/* top: 50%; */
+	margin-left: 17px;
+	margin-top: 15px;
+	z-index: 1;
+	color: #4f5b66;
+
+	transition: all 0.55s ease;
+}
+
+.user_tag {
+	background: rgba(116, 115, 115, 0.8);
+	/* width: 50rem; */
+	border: inset;
+	border-radius:1rem;
+	border-color: darkgreen;
+	display:"flex";
+	text-align: center;
+	height: 6rem;
+	margin-left: 12rem;
+	margin-right: 12rem;
+	margin-bottom: 1rem;
+}
+
+.user_tag :hover {
+	cursor: pointer;
+}
+
+.tag_name {
+	text-align: left;
+	font-size: 2rem;
+	margin-left: 0.5rem;
+	color: ghostwhite;
+}
+.tag_files{
+	text-align: right;
+	font-size: 1.15rem;
+	padding-bottom: 3rem;
+
+	color: lightgrey;
+}
+.Publicpdf_list{
+	
+    margin: 0 auto;
+    height: 4rem;
+    width: 30rem;
+    background-color:rgb(40, 40, 40,0.6) !important;
+    border:solid;
+    border-color: darkcyan !important;
+    border-radius: 1.2rem !important;
+    font-family:Papyrus;
+    float: left;
+    color: antiquewhite;
+    display:flex;
+    margin-bottom: 0.5rem !important;
+    justify-content: space-between;
+    font-size :1.5rem;
+}

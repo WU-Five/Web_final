@@ -3,7 +3,8 @@ import { Container, ListGroup, ListGroupItem, Button } from 'reactstrap';
 import { NavLink } from 'react-router-dom';
 import axios from 'axios';
 import { fileContext } from '../context/fileIndex';
-
+import UploadFile from './UploadFile';
+import '../stylesheets/SelfRoom.css';
 const SelfFile = () => {
 	const { filestate, dispatch } = useContext(fileContext);
 
@@ -40,19 +41,31 @@ const SelfFile = () => {
 	const { files } = filestate;
 	const isprivate = true;
 	return (
-		<Container>
-			<h2>{localStorage.getItem('name')}</h2>
-			<ListGroup>
+		<Container className="container">
+			<div className="Selfpdf_list-div">
+				<h1 className="Selfpdf_list-title">使用者:</h1>
+				<h2 className="Selfpdf_list-name">{localStorage.getItem('name')}</h2>
+				<UploadFile className="upload-button" />
+			</div>
+			<ListGroup style={{ border: 'none' }} className="Selfpdf_list-group">
 				{files.map(({ user, name, path }) => (
-					<ListGroupItem key={path} className="Selfpdf_list">
-						<span style={{ float: 'left', marginTop: '0.2rem' }}>{`${user}: ${name}`}</span>
-						<Button className="remove-btn" color="danger" size="sm" onClick={() => DeleteFile(user, path)}>
+					<div className="Selfpdf_list" key={path}>
+						<ListGroupItem
+							style={{ display: 'flex', backgroundColor: 'initial', border: '0px' }}
+							to={`/FileRoom/${user}/${path}/${isprivate}`}
+							tag={NavLink}>
+							<span
+								style={{
+									float: 'left',
+									color: 'antiquewhite',
+									display: 'flex',
+									backgroundColor: 'none',
+								}}>{`${name}`}</span>
+						</ListGroupItem>
+						<button className="remove-btn" onClick={() => DeleteFile(user, path)}>
 							&times;
-						</Button>
-						<Button className="edit-btn" to={`/FileRoom/${user}/${path}/${isprivate}`} tag={NavLink}>
-							Edit
-						</Button>
-					</ListGroupItem>
+						</button>
+					</div>
 				))}
 			</ListGroup>
 			{/* <input onChange={handleUpload} type="file" /> */}

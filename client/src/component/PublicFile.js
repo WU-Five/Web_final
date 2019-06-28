@@ -1,38 +1,45 @@
-import React, { useContext, useEffect } from 'react';
-import { Container, ListGroup, ListGroupItem, Button } from 'reactstrap';
+import React, { useState, useContext, useEffect } from 'react';
+import { Container, ListGroup, ListGroupItem, Button, Collapse } from 'reactstrap';
 import { NavLink } from 'react-router-dom';
 import axios from 'axios';
-import { fileContext } from '../context/fileIndex';
 
-
-const PublicFile = () => {
-	const { filestate, dispatch } = useContext(fileContext);
-
+const PublicFile = props => {
+	const { user } = props;
+	const [isOpen, setIsOpen] = useState(false);
+	const [files, setFiles] = useState([]);
 	useEffect(() => {
 		axios
-			.get(`/api/files`)
+			.get(`/api/files/${user}`)
 			.then(res => {
-				dispatch({ type: 'GET_FILES', payload: res.data });
+				setFiles(res.data);
 			})
 			.catch(err => console.log(err));
-	}, [dispatch]);
+	}, [user]);
 
-
-	const { files } = filestate;
 	const isprivate = false;
 	return (
 		<Container>
-			<h2>{localStorage.getItem('name')}</h2>
-			<ListGroup>
-				{files.map(({ user, name , path}) => (
-					<ListGroupItem key={path} className='Selfpdf_list'>
-						<span style={{ float: 'left', marginTop: '0.2rem' }}>{`${user}: ${name}`}</span>
-						<Button className='edit-btn' to={`/FileRoom/${user}/${path}/${isprivate}`} tag={NavLink}>
-							See
-						</Button>			
-				</ListGroupItem>
-				))}
-			</ListGroup>			
+			<div className="user_tag" onClick={() => setIsOpen(!isOpen)}>
+				<p className="tag_name">
+					User:{user}  
+				</p>
+				<p className="tag_files">
+					Uploaded Files:{files.length}
+				</p>
+			</div>
+			<Collapse isOpen={isOpen}>
+				<ListGroup>
+					{files.map(({ user, name, path }) => (
+						<ListGroupItem
+							key={path}
+							className="Publicpdf_list"
+							to={`/FileRoom/${user}/${path}/${isprivate}`}
+							tag={NavLink}>
+							<span style={{ float: 'left', marginTop: '0.2rem' }}>{`${name}`}</span>
+						</ListGroupItem>
+					))}
+				</ListGroup>
+			</Collapse>
 		</Container>
 	);
 };

@@ -26,6 +26,7 @@ app.use('/api/register', require('./routes/api/register'));
 app.use('/api/login', require('./routes/api/login'));
 
 app.use('/api/videos', require('./routes/api/videos'));
+app.use('/api/users', require('./routes/api/users'));
 
 app.use('/api/utils', require('./routes/api/utils'));
 

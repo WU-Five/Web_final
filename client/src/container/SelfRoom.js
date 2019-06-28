@@ -5,7 +5,6 @@ import UploadFile from '../component/UploadFile';
 const SelfRoom = () => {
 	return (
 		<div>
-			<UploadFile />
 			<SelfFile />
 		</div>
 	);
