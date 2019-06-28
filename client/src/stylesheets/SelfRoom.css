@@ -23,7 +23,7 @@
     background-color:rgb(136, 135, 135,0.6) !important;
     border:solid;
     border-color: darkred !important;
-    border-radius: 1.2rem;
+    border-radius: 1.2rem !important;
     font-family:Papyrus;
     float: left;
     color: antiquewhite;

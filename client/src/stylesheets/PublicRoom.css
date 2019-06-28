@@ -34,11 +34,11 @@
 }
 
 .user_tag {
-	background: wheat;
+	background: rgba(247, 251, 4, 0.6);
 	/* width: 50rem; */
 	margin-left: 12rem;
 	margin-right: 12rem;
-	margin-bottom: 1.5rem;
+	margin-bottom: 3rem;
 }
 
 .user_tag :hover {
@@ -48,4 +48,20 @@
 .tag_name {
 	text-align: left;
 	margin-left: 0.5rem;
+}
+.Publicpdf_list{
+    margin: 0 auto;
+    height: 6.5rem;
+    width: 60rem;
+    background-color:rgb(136, 135, 135,0.6) !important;
+    border:solid;
+    border-color: darkred !important;
+    border-radius: 1.2rem !important;
+    font-family:Papyrus;
+    float: left;
+    color: antiquewhite;
+    display:flex;
+    margin-bottom: 0.5rem !important;
+    justify-content: space-between;
+    font-size :2rem;
 }

@@ -21,7 +21,7 @@ const PublicFile = props => {
 		<Container>
 			<div className="user_tag" onClick={() => setIsOpen(!isOpen)}>
 				<p className="tag_name">
-					{user}
+					{user}:
 					{files.length}
 				</p>
 			</div>
@@ -30,7 +30,7 @@ const PublicFile = props => {
 					{files.map(({ user, name, path }) => (
 						<ListGroupItem
 							key={path}
-							className="Selfpdf_list"
+							className="Publicpdf_list"
 							to={`/FileRoom/${user}/${path}/${isprivate}`}
 							tag={NavLink}>
 							<span style={{ float: 'left', marginTop: '0.2rem' }}>{`${user}: ${name}`}</span>
