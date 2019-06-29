@@ -4,17 +4,17 @@ const config = require('config');
 const fs = require('fs');
 const app = express();
 
-fs.exists('video_File', e => {
-	if (!e) {
-		fs.mkdir('./video_File');
-	}
-});
+// fs.exists('video_File', e => {
+// 	if (!e) {
+// 		fs.mkdir('./video_File');
+// 	}
+// });
 
-fs.exists('pdf_File', e => {
-	if (!e) {
-		fs.mkdir('./pdf_File');
-	}
-});
+// fs.exists('pdf_File', e => {
+// 	if (!e) {
+// 		fs.mkdir('./pdf_File');
+// 	}
+// });
 
 // Bodyparser Middleware
 app.use(express.json());
