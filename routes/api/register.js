@@ -6,7 +6,7 @@ const fs = require('fs');
 const User = require('../../models/User');
 const file_path = path.join(__dirname, '../../video_File/');
 
-router.post('/', async (req, res) => {
+router.post('/', (req, res) => {
 	var { user, password } = req.body;
 	if (!user) return res.status(400).json({ type: 'user', msg: 'User cannot be empty' });
 
@@ -17,7 +17,7 @@ router.post('/', async (req, res) => {
 		return res.status(400).json({ type: 'user', msg: 'Invalid username. ' });
 	}
 
-	await User.findOne({ user }).then(user => {
+	User.findOne({ user }).then(user => {
 		if (user) return res.status(400).json({ type: 'user', msg: 'User is already registered' });
 	});
 
