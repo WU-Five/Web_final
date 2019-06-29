@@ -54,6 +54,9 @@ const Record = props => {
 	};
 
 	const stopRecording = async () => {
+		if (!recordVideo) {
+			return;
+		}
 		await recordVideo.stopRecording(() => {
 			var blob = recordVideo.getBlob();
 			const dataForm = new FormData();
@@ -80,6 +83,7 @@ const Record = props => {
 		[screen, audio].forEach(stream => {
 			stream.getTracks()[0].stop();
 		});
+		setRecordVideo(null);
 	};
 
 	return (

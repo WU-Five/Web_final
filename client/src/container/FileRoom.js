@@ -42,7 +42,13 @@ class FileRoom extends Component {
 		if (localStorage.getItem('pageNum')) {
 			const num = Number(localStorage.getItem('pageNum'));
 			this.setState(state => ({ pageNumber: num }));
+		} else {
+			localStorage.setItem('pageNum', 1);
 		}
+	}
+
+	componentWillUnmount() {
+		localStorage.setItem('pageNum', 1);
 	}
 
 	render() {

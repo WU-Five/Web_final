@@ -7,11 +7,20 @@ const User = require('../../models/User');
 const file_path = path.join(__dirname, '../../video_File/');
 
 router.post('/', async (req, res) => {
-	const { user, password } = req.body;
+	var { user, password } = req.body;
 	if (!user) return res.status(400).json({ type: 'user', msg: 'User cannot be empty' });
+
+	var regex = /^\w*$/;
+	const checkUser = regex.exec(user);
+
+	if (checkUser === null) {
+		return res.status(400).json({ type: 'user', msg: 'Invalid username. ' });
+	}
+
 	await User.findOne({ user }).then(user => {
 		if (user) return res.status(400).json({ type: 'user', msg: 'User is already registered' });
 	});
+
 	if (password.length < 6) {
 		return res.status(400).json({ type: 'password', msg: 'Password must be at least 6 charater' });
 	} else {
@@ -24,15 +33,14 @@ router.post('/', async (req, res) => {
 			}
 		});
 		const newUser = new User({ user: user, password: password });
-		newUser.save()
-			.then( user => {
-				res.json({
-					user: {
-						id: user.id,
-						name: user.user
-					}
-				});
+		newUser.save().then(user => {
+			res.json({
+				user: {
+					id: user.id,
+					name: user.user,
+				},
 			});
+		});
 	}
 });
 
