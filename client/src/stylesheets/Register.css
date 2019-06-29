@@ -1,44 +1,43 @@
-.register{
-    font-family:Papyrus;
-    font-weight: 2000;
-    text-shadow:3px 3px 3px black;
-    padding:4rem 3rem;
-    text-align:center;
-    line-height:80px;
+.register {
+	font-family: Papyrus;
+	font-weight: 2000;
+	text-shadow: 3px 3px 3px black;
+	padding: 4rem 3rem;
+	text-align: center;
+	line-height: 80px;
 }
-.register-title{
-    color: antiquewhite;
-    font-size: 40px;
-    margin: 3rem;
+.register-title {
+	color: antiquewhite;
+	font-size: 40px;
+	margin: 3rem;
 }
-.register-user{
-    color: antiquewhite;
-    margin: 3rem;
-    font-size: 20px;
-
+.register-user {
+	color: antiquewhite;
+	margin: 3rem;
+	font-size: 20px;
 }
-.register-password{
-    color: antiquewhite;
-    margin: 0.25rem;
-    font-size: 20px;
+.register-password {
+	color: antiquewhite;
+	margin: 0.25rem;
+	font-size: 20px;
 }
-.register-button{
-    font-size :2rem;
-    text-shadow:3px 3px 3px black;
-    font-weight: bolder;
-    font-family: inherit;
-    text-align: top;
-    padding-top: -5px;
-    outline: none;
-    border: none;
-    border-radius: 20px;
-    color: antiquewhite;
-    border-color: antiquewhite;
-    margin-right: 4rem;
-    margin-left: 4rem;
+.register-button {
+	font-size: 2rem;
+	text-shadow: 3px 3px 3px black;
+	font-weight: bolder;
+	font-family: inherit;
+	text-align: top;
+	padding-top: -5px;
+	outline: none;
+	border: none;
+	border-radius: 20px;
+	color: antiquewhite;
+	border-color: antiquewhite;
+	margin-right: 4rem;
+	margin-left: 4rem;
 }
 .register-button:hover {
-    cursor: pointer;
-    border: inline-block;
-    border-radius: 50px;
-  }
+	cursor: pointer;
+	border: inline-block;
+	border-radius: 50px;
+}

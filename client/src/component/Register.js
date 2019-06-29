@@ -3,7 +3,7 @@ import { Container, Col, Form, FormGroup, Label, Input, Button } from 'reactstra
 import { NavLink, Redirect } from 'react-router-dom';
 import { userContext } from '../context/userIndex';
 import axios from 'axios';
-import '../stylesheets/Register.css'
+import '../stylesheets/Register.css';
 
 const Register = () => {
 	const { userstate, dispatch } = useContext(userContext);
@@ -16,10 +16,12 @@ const Register = () => {
 		axios
 			.post('/api/register', { user: user, password: password })
 			.then(res => {
-				console.log(res.data);
+				console.log(res);
 				dispatch({ type: 'LOGIN', payload: { user: user, isLogin: true } });
 			})
 			.catch(err => {
+				console.log(err);
+
 				const { type, msg } = err.response.data;
 				if (type === 'user') {
 					userError.current.innerHTML = msg;
@@ -31,10 +33,10 @@ const Register = () => {
 	return userstate.isLogin ? (
 		<Redirect to="/selfRoom" />
 	) : (
-		<Container className='register'>
-			<h2 className ='register-title'>Register</h2>
+		<Container className="register">
+			<h2 className="register-title">Register</h2>
 			<Form onSubmit={handleSubmit}>
-				<Col md={{ size: 6, offset: 3 }} className='register-user'>
+				<Col md={{ size: 6, offset: 3 }} className="register-user">
 					<FormGroup row style={{ marginTop: '10px', marginBottom: '0px' }}>
 						<Label sm="2" style={{ textAlign: 'left' }}>
 							User
@@ -47,11 +49,20 @@ const Register = () => {
 								}}
 								autoFocus={true}
 							/>
-							<p style={{ textAlign: 'left', height: '25px', margin: '0px', color: 'red' }} ref={userError} />
+							<p
+								style={{
+									textAlign: 'left',
+									height: '25px',
+									// marginTop: '-1.8rem',
+									color: 'yellow',
+									fontWeight: 'bolder',
+								}}
+								ref={userError}
+							/>
 						</Col>
 					</FormGroup>
 				</Col>
-				<Col  md={{ size: 6, offset: 3 }} className='register-password'>
+				<Col md={{ size: 6, offset: 3 }} className="register-password">
 					<FormGroup row style={{ marginTop: '0px', marginBottom: '0px' }}>
 						<Label sm="2">Password</Label>
 						<Col sm="10">
@@ -62,14 +73,24 @@ const Register = () => {
 									setPassword(e.target.value);
 								}}
 							/>
-							<p style={{ textAlign: 'left', height: '25px', margin: '0px', color: 'red' }} ref={passwordError} />
+							<p
+								style={{
+									textAlign: 'left',
+									height: '25px',
+									// marginTop: '-1.8rem',
+									marginBottom: '2rem',
+									color: 'yellow',
+									fontWeight: 'bolder',
+								}}
+								ref={passwordError}
+							/>
 						</Col>
 					</FormGroup>
 				</Col>
-				<Button type="submit"  className='register-button'>
+				<Button type="submit" className="register-button">
 					Submit
 				</Button>
-				<Button  to="/login" tag={NavLink} className ='register-button'>
+				<Button to="/login" tag={NavLink} className="register-button">
 					Cancel
 				</Button>
 			</Form>

@@ -29,12 +29,16 @@ const UploadFile = () => {
 				.then(res => {
 					console.log(`Success upload ${res.data.name}`);
 					dispatch({ type: 'ADD_FILE', payload: res.data });
+					toggle();
 				})
-				.catch(err => console.log(err));
-			toggle();
+				.catch(err => {
+					console.log(err);
+					uploadError.current.innerHTML = 'Error file format';
+				});
 		} else {
 			uploadError.current.innerHTML = 'No File Selected';
 		}
+		setFile('');
 	};
 
 	return (
@@ -54,7 +58,7 @@ const UploadFile = () => {
 			</Button>
 
 			<Modal isOpen={modal} toggle={toggle}>
-				<ModalHeader toggle={toggle}>Choose File to Upload</ModalHeader>
+				<ModalHeader toggle={toggle}>Choose PDF File to Upload</ModalHeader>
 				<ModalBody>
 					<Form onSubmit={onSubmit}>
 						<FormGroup>

@@ -33,6 +33,9 @@ var store = function(req, res, next) {
 	}).any();
 
 	upload(req, res, function(err) {
+		if (req.files[0].mimetype != 'application/pdf') {
+			return res.status(400).send('Error file type');
+		}
 		if (err) {
 			console.log(err);
 			return res.status(400).send('Error uploading file.');
