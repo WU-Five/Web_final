@@ -62,7 +62,7 @@ const UploadFile = () => {
 				<ModalBody>
 					<Form onSubmit={onSubmit}>
 						<FormGroup>
-							<Input type="file" name="name" id="item" onChange={onChange} />
+							<Input type="file" name="name" id="item" onChange={onChange} style={{marginTop: '1.5rem'}}/>
 							<p
 								style={{ textAlign: 'left', height: '25px', marginTop: '0.5rem', color: 'red' }}
 								ref={uploadError}

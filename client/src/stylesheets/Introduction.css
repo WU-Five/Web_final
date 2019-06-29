@@ -1,6 +1,6 @@
 .home-title {
 	font-family: Papyrus;
-	padding: 11rem 6rem;
+	padding: 9rem 6rem;
 	text-shadow: 0.1rem 0.1rem 0.1rem antiquewhite, 0.5rem 0.5rem 0.5rem rgb(48, 47, 47);
 
 	font-size: 70px;
@@ -11,7 +11,7 @@
 }
 
 .home-content {
-	font-size: 30px;
+	font-size: 1.5rem;
 	color: darkred;
 	/* float: inline-end; */
 	font-family: Papyrus;
