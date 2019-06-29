@@ -1,8 +1,8 @@
 import React, { useState, useContext, useRef, useEffect } from 'react';
 import { utilContext } from '../context/utilIndex';
-import { answerContext } from '../context/answerIndex';
+// import { answerContext } from '../context/answerIndex';
 import Record from './Record';
-import { Button, Collapse, UncontrolledCollapse, ListGroup, ListGroupItem, Form, FormGroup, Label, Input } from 'reactstrap';
+import { Button, Collapse, ListGroup, ListGroupItem, Form, FormGroup, Label, Input } from 'reactstrap';
 import axios from 'axios';
 import Question from './reply/Question';
 
@@ -60,7 +60,7 @@ const FileUtil = props => {
 			})
 			.then(res => {
 				console.log('success upload util');
-				dispatch({ type: 'ADD_Util', payload: res.data });
+				dispatch({ type: 'ADD_UTIL', payload: res.data });
 			})
 			.catch(err => {
 				console.log(err);
@@ -101,7 +101,7 @@ const FileUtil = props => {
 				})
 				.then(res => {
 					console.log('success upload util');
-					dispatch({ type: 'ADD_Util', payload: res.data });
+					dispatch({ type: 'ADD_UTIL', payload: res.data });
 				})
 				.catch(err => {
 					console.log(err);
@@ -119,7 +119,7 @@ const FileUtil = props => {
 				})
 				.then(res => {
 					console.log('success upload util');
-					dispatch({ type: 'ADD_Util', payload: res.data });
+					dispatch({ type: 'ADD_UTIL', payload: res.data });
 				})
 				.catch(err => {
 					console.log(err);
