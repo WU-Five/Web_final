@@ -27,7 +27,7 @@ router.post('/', async (req, res) => {
 		const upload_path = path.join(file_path, user, '/');
 		fs.exists(upload_path, exists => {
 			if (!exists) {
-				fs.mkdir(upload_path, err => {
+				fs.mkdirSync(upload_path, err => {
 					if (err) throw err;
 				});
 			}
