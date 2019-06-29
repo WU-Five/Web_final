@@ -1,7 +1,8 @@
 .login{
     font-family:Papyrus;
-    font-weight: 2000; 
-    padding:15rem 3rem;
+    font-weight: 2000;
+    text-shadow:3px 3px 3px black;
+    padding:4rem 3rem;
     text-align:center;
     line-height:80px;
 }
@@ -23,6 +24,7 @@
 }
 .login-button{
     font-size :2rem;
+    text-shadow:3px 3px 3px black;
     font-weight: bolder;
     font-family: inherit;
     text-align: top;
@@ -34,8 +36,6 @@
     border-color: antiquewhite;
     margin-right: 4rem;
     margin-left: 4rem;
-    text-decoration: underline;
-    
 }
 .login-button:hover {
     cursor: pointer;

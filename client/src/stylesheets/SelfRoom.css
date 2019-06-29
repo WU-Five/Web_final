@@ -17,6 +17,15 @@
 	border-color: black;
 }
 
+.upload-button{
+	margin-left: 20rem;
+	text-shadow:3px 3px 3px black;
+}
+
+.upload-button:hover {
+    border-radius: 50px;
+}
+
 .Selfpdf_list-div {
 	height: 7rem;
 	display: 'inline-flex';
@@ -46,13 +55,15 @@
 .Selfpdf_list-name {
 	color: antiquewhite;
 	font-size: 40px;
-	margin: 3rem;
+	margin-top: 3rem;
 	float: left;
 }
 .Selfpdf_list-title {
 	color: antiquewhite;
 	font-size: 40px;
-	margin: 3rem;
+	margin-top: 3rem;
+	margin-right: 2rem;
+	margin-bottom: 3rem;
 	float: left;
 	font-family: '標楷體';
 }

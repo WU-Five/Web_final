@@ -45,7 +45,7 @@ const SelfFile = () => {
 			<div className="Selfpdf_list-div">
 				<h1 className="Selfpdf_list-title">使用者:</h1>
 				<h2 className="Selfpdf_list-name">{localStorage.getItem('name')}</h2>
-				<UploadFile className="upload-button" />
+				<UploadFile />
 			</div>
 			<ListGroup style={{ border: 'none' }} className="Selfpdf_list-group">
 				{files.map(({ user, name, path }) => (

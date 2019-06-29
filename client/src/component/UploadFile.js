@@ -45,6 +45,7 @@ const UploadFile = () => {
 		<>
 			<Button
 				color="dark"
+				className= 'upload-button'
 				onClick={toggle}
 				style={{
 					fontFamily: 'Papyrus',
@@ -66,7 +67,7 @@ const UploadFile = () => {
 								style={{ textAlign: 'left', height: '25px', marginTop: '0.5rem', color: 'red' }}
 								ref={uploadError}
 							/>
-							<Button color="dark" style={{ marginTop: '2rem' }} block>
+							<Button color="dark" style={{ margin: 'auto', marginTop: '2rem', width: '8rem' }} block>
 								Upload
 							</Button>
 						</FormGroup>

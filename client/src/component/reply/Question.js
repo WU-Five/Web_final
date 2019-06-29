@@ -166,7 +166,6 @@ const Question = props => {
 			</ListGroupItem>
 		);
 	if (comment_type) {
-		console.log('in789');
 		return isvideo ? (
 			<ShowVideo user={user} path={video_path} pdf_name={file} title={title} user_u={user_u} />
 		) : (
