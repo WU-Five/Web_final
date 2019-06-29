@@ -4,8 +4,8 @@ import RecordRTC from 'recordrtc';
 import { videoContext } from '../context/videoIndex';
 import ysFixWebmDuration from 'fix-webm-duration';
 
-const Record = (props) => {
-	const {pdf_name, page_num, util_name, Ref } = props;
+const Record = props => {
+	const { pdf_name, page_num, util_name, Ref } = props;
 	const [recordVideo, setRecordVideo] = useState(null);
 	const [screen, setScreen] = useState(null);
 	const [audio, setAudio] = useState(null);
@@ -13,7 +13,6 @@ const Record = (props) => {
 	const [uploadDone, setUploadDone] = useState(false);
 	// const { userstate } = useContext(userContext);
 	const { videoState, dispatch } = useContext(videoContext);
-
 
 	useEffect(() => {
 		if (recordVideo) {
@@ -64,12 +63,15 @@ const Record = (props) => {
 				axios
 					.post(`/api/videos/${localStorage.getItem('name')}/${pdf_name}/${page_num}/${util_name}`, dataForm)
 					.then(res => {
+						console.log(`/api/videos/${localStorage.getItem('name')}/${pdf_name}/${page_num}/${util_name}`);
 						console.log(`Success upload video`);
 						Ref.current = res.data.path;
 						setUploadDone(true);
 						dispatch({ type: 'ADD_VIDEO', payload: res.data });
 					})
 					.catch(err => {
+						console.log(`/api/videos/${localStorage.getItem('name')}/${pdf_name}/${page_num}/${util_name}`);
+
 						console.log(err);
 					});
 			});
@@ -82,18 +84,16 @@ const Record = (props) => {
 
 	return (
 		<div>
-			<button type='button' onClick={() => startRecording()} id="btn-start-recording">
+			<button type="button" onClick={() => startRecording()} id="btn-start-recording">
 				start
 			</button>
-			<button type='button' onClick={() => stopRecording()} id="btn-stop-recording">
+			<button type="button" onClick={() => stopRecording()} id="btn-stop-recording">
 				stop
 			</button>
 			{getisRecording() && (
-				<p style={{ textAlign: 'center',height:'1rem', fontSize: '1rem', color: 'red' }}> recording </p>
+				<p style={{ textAlign: 'center', height: '1rem', fontSize: '1rem', color: 'red' }}> recording </p>
 			)}
-			{uploadDone && (
-				<p style={{ textAlign: 'center',height:'1rem', fontSize: '1rem', color: 'red' }}> Ok </p>
-			)}
+			{uploadDone && <p style={{ textAlign: 'center', height: '1rem', fontSize: '1rem', color: 'red' }}> Ok </p>}
 		</div>
 	);
 };

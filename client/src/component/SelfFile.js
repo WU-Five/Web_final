@@ -62,7 +62,7 @@ const SelfFile = () => {
 									backgroundColor: 'none',
 								}}>{`${name}`}</span>
 						</ListGroupItem>
-						<button className="remove-btn" onClick={() => DeleteFile(user, path)}>
+						<button style={{ outline: 'none' }} className="remove-btn" onClick={() => DeleteFile(user, path)}>
 							&times;
 						</button>
 					</div>
