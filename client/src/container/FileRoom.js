@@ -19,12 +19,14 @@ class FileRoom extends Component {
 	goToPrevPage = () => {
 		if (this.state.pageNumber > 1) {
 			this.setState(state => ({ pageNumber: state.pageNumber - 1 }));
+			localStorage.setItem('pageNum', this.state.pageNumber - 1);
 		}
 	};
 
 	goToNextPage = () => {
 		if (this.state.pageNumber < this.state.numPages) {
 			this.setState(state => ({ pageNumber: state.pageNumber + 1 }));
+			localStorage.setItem('pageNum', this.state.pageNumber + 1);
 		}
 	};
 
@@ -32,20 +34,32 @@ class FileRoom extends Component {
 		return isprivate === 'true' ? true : false;
 	};
 
+	resetPage = () => {
+		localStorage.setItem('pageNum', 1);
+	};
+
+	componentDidMount() {
+		if (localStorage.getItem('pageNum')) {
+			const num = Number(localStorage.getItem('pageNum'));
+			this.setState(state => ({ pageNumber: num }));
+		}
+	}
+
 	render() {
-		const { pageNumber, numPages } = this.state;
+		const { numPages } = this.state;
 		const { user, path, isprivate } = this.props.match.params;
+		const pageNum = Number(localStorage.getItem('pageNum'));
 		return (
 			<Container className="container pdf_wrap">
 				<div className="row">
-					<FileUtil page={this.state.pageNumber} user={user} file={path} />
+					<FileUtil page={localStorage.getItem('pageNum')} user={user} file={path} />
 					<div className="col-md-8 Showpdf_wrap">
 						<div>
 							<Document
 								file={`/api/files/${user}/${path}`}
 								onLoadSuccess={this.onDocumentLoadSuccess}
 								className="Showpdf_doc">
-								<Page scale={1.2} pageNumber={pageNumber} />
+								<Page scale={1.2} pageNumber={pageNum} />
 							</Document>
 						</div>
 						<div className="row Showpdf_footer">
@@ -53,18 +67,18 @@ class FileRoom extends Component {
 								<Button onClick={this.goToPrevPage}>Prev</Button>
 							</div>
 							<div className="col" style={{ marginTop: '0.7rem', color: 'antiquewhite' }}>
-								Page {pageNumber} of {numPages}
+								Page {pageNum} of {numPages}
 							</div>
 							<div className="col">
 								<Button onClick={this.goToNextPage}>Next</Button>
 							</div>
 						</div>
 						{this.getisprivate(isprivate) ? (
-							<Button style={{ margin: '2rem' }} to={'/SelfRoom'} tag={NavLink}>
+							<Button style={{ margin: '2rem' }} to={'/SelfRoom'} tag={NavLink} onClick={() => this.resetPage()}>
 								Back
 							</Button>
 						) : (
-							<Button style={{ margin: '2rem' }} to={'/PublicRoom'} tag={NavLink}>
+							<Button style={{ margin: '2rem' }} to={'/PublicRoom'} tag={NavLink} onClick={() => this.resetPage()}>
 								Back
 							</Button>
 						)}

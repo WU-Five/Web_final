@@ -60,7 +60,7 @@ const FileUtil = props => {
 			})
 			.then(res => {
 				console.log('success upload util');
-				dispatch({ type: 'ADD_Util', payload: res.data });
+				dispatch({ type: 'ADD_UTIL', payload: res.data });
 			})
 			.catch(err => {
 				console.log(err);
