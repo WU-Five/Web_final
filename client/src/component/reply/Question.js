@@ -95,15 +95,16 @@ const Question = props => {
 
 	if (!comment_type)
 		return (
-			<ListGroupItem>
-				<ListGroup>
-					<ListGroupItem style={{ backgroundColor: 'red' }}>
-						<span style={{ float: 'left', marginTop: '0.2rem' }}>{`${user_u}: ${title}`}</span>
+			<ListGroupItem style={{backgroundColor:'rgb(0,0,0,0)',width:'100%',left:'0.8%',borderRadius:'2rem'}}>
+				<ListGroup style={{backgroundColor:'rgb(0,0,0,0)'}}>
+					
+					<ListGroupItem style={{ backgroundColor: 'darkred' }}>
+						<span style={{ float: 'left', marginTop: '0.2rem' ,color:'antiquewhite'}}>{`${user_u}: ${title}`}</span>
 						<Button style={{ marginLeft: '2rem' }} onClick={() => toggle_3(title)}>
 							Reply
 						</Button>
 						<Collapse isOpen={modal_3}>
-							<div style={{ background: 'white' }}>
+							<div style={{ background: 'none',color:'antiquewhite' }}>
 								<h4>Write Reply</h4>
 								<Form onSubmit={onSubmit_3}>
 									<FormGroup>

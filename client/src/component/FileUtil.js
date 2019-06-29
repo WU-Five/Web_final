@@ -132,26 +132,26 @@ const FileUtil = props => {
 
 	return (
 		<div className="col-md-4 Utilpdf_wrap">
-			<h3 style={{ color: 'white' }}>新增項目</h3>
+			<h3 style={{ color: 'antiquewhite' ,fontFamily:'標楷體' }}>新增項目</h3>
 			<div className="row">
-				<Button className="col Utilpdf_btn" onClick={toggle_1}>
+				<Button className="col Utilpdf_btn" onClick={toggle_1} style={{fontFamily:'標楷體'}}>
 					問題
 				</Button>
-				<Button className="col Utilpdf_btn" onClick={toggle_2}>
+				<Button className="col Utilpdf_btn" onClick={toggle_2}style={{fontFamily:'標楷體'}}>
 					解釋
 				</Button>
 			</div>
 
 			<Collapse isOpen={modal_1}>
-				<div style={{ background: 'white' }}>
-					<h4>Write Question</h4>
+				<div style={{ background: 'none' }}>
+					<h4 style={{color:'antiquewhite'}}>Write Question</h4>
 					<Form onSubmit={onSubmit_1}>
 						<FormGroup>
-							<Label for="item" style={{ marginTop: '0.5rem' }}>
+							<Label for="item" style={{ marginTop: '0.5rem',color:'antiquewhite' }}>
 								Question
 							</Label>
 							<Input type="text" id="item" value={title} onChange={createTitle} />
-							<p style={{ textAlign: 'left', height: '15px', marginTop: '0.5rem', color: 'red' }} ref={notitle} />
+							<p style={{ textAlign: 'left', height: '15px', marginTop: '0.5rem', color: 'darkred' }} ref={notitle} />
 							<Button color="dark" style={{ margin: 'auto', width: '5rem' }} block>
 								Submit
 							</Button>
@@ -161,21 +161,21 @@ const FileUtil = props => {
 			</Collapse>
 
 			<Collapse isOpen={modal_2}>
-				<div style={{ background: 'white' }}>
-					<h4>Write Explanation</h4>
+				<div style={{ background: 'none' }}>
+					<h4 style={{color:'antiquewhite'}}>Write Explanation</h4>
 					<Form onSubmit={onSubmit_2}>
 						<FormGroup>
-							<Label for="item">Title</Label>
+							<Label for="item" style={{color:'antiquewhite'}}>Title</Label>
 							<Input type="text" id="item" value={title} onChange={createTitle} />
-							<p style={{ textAlign: 'left', height: '10px', marginTop: '0.5rem', color: 'red' }} ref={notitle} />
-							<Label for="chooseinput">Choose input type</Label>
+							<p style={{ textAlign: 'left', height: '10px', marginTop: '0.5rem', color: 'darkred' }} ref={notitle} />
+							<Label for="chooseinput" style={{color:'antiquewhite'}}>Choose input type</Label>
 							<div id="chooseinput">
 								<div className="radio">
-									<label>
+									<label style={{color:'antiquewhite'}}>
 										<input type="radio" name="inputtype" value="text" onChange={text_2} checked={iftext_2} />
 										Text
 									</label>
-									<label style={{ marginLeft: '1rem' }}>
+									<label style={{ marginLeft: '1rem',color:'antiquewhite' }}>
 										<input
 											type="radio"
 											name="inputtype"
@@ -199,8 +199,8 @@ const FileUtil = props => {
 					</Form>
 				</div>
 			</Collapse>
-
-			<ListGroup>
+			
+			<ListGroup >
 				{utils.map(({ user_u, title, comment_type, _id, isvideo, video_path, description }, idx) => (
 					<Question
 						user_u={user_u}
