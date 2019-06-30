@@ -88,10 +88,30 @@ const Record = props => {
 
 	return (
 		<div>
-			<button type="button"style={{backgroundColor:'black',margin:'0.5rem',color:'antiquewhite',border:'none'}} onClick={() => startRecording() } id="btn-start-recording">
+			<button
+				type="button"
+				style={{
+					backgroundColor: 'black',
+					margin: '0.5rem',
+					color: 'antiquewhite',
+					border: 'none',
+					fontFamily: 'Monaco',
+				}}
+				onClick={() => startRecording()}
+				id="btn-start-recording">
 				start
 			</button>
-			<button type="button"style={{backgroundColor:'black',margin:'0.5rem',color:'antiquewhite',border:'none'}} onClick={() => stopRecording()} id="btn-stop-recording">
+			<button
+				type="button"
+				style={{
+					backgroundColor: 'black',
+					margin: '0.5rem',
+					color: 'antiquewhite',
+					border: 'none',
+					fontFamily: 'Monaco',
+				}}
+				onClick={() => stopRecording()}
+				id="btn-stop-recording">
 				stop
 			</button>
 			{getisRecording() && (

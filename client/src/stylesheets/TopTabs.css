@@ -1,16 +1,16 @@
-.TopTabs-home{
-    float: left;
-    padding: 24px 60px;
-    font-size: 2rem !important;
-    color: antiquewhite;
-    font-family:Papyrus;
+.TopTabs-home {
+	float: left;
+	padding: 24px 60px;
+	font-size: 2rem !important;
+	color: antiquewhite;
+	font-family: Papyrus;
 }
-.TopTabs-NavBar-li{
-    padding: 10px 20px;
-    font-size: 30px;
-    font-family:Papyrus;
-  }
-.TopTabs-NavBar-li:hover{ 
-    background-color: transparent;
-    opacity: 0.5; }
-   
+.TopTabs-NavBar-li {
+	padding: 10px 20px;
+	font-size: 30px;
+	font-family: Papyrus;
+}
+.TopTabs-NavBar-li:hover {
+	background-color: transparent;
+	opacity: 0.5;
+}

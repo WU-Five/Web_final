@@ -7,7 +7,7 @@ import ShowVideo from '../ShowVideo';
 import Showcontent from '../Showcontent';
 
 const Question = props => {
-	const { user_u, title, comment_type, _id, isvideo, video_path, page, user, file, video_name, description } = props;
+	const { user_u, title, comment_type, _id, isvideo, video_path, page, user, file, video_name, description, self } = props;
 	const [modal_3, setModal_3] = useState(false);
 	const [iftext_3, setIftext_3] = useState(true);
 	const [questionName, setQuestionName] = useState('');
@@ -57,7 +57,7 @@ const Question = props => {
 		if (iftext_3) {
 			axios
 				.post('/api/answers', {
-					user: user,
+					user: self,
 					file: file,
 					page: page,
 					question_name: questionName,
@@ -74,7 +74,7 @@ const Question = props => {
 		} else {
 			axios
 				.post('/api/answers', {
-					user: user,
+					user: self,
 					file: file,
 					page: page,
 					question_name: questionName,
@@ -95,16 +95,22 @@ const Question = props => {
 
 	if (!comment_type)
 		return (
-			<ListGroupItem style={{backgroundColor:'rgb(0,0,0,0)',width:'100%',left:'0.8%',borderRadius:'2rem', border: '0px'}}>
-				<ListGroup style={{backgroundColor:'rgb(0,0,0,0)'}}>
-					
+			<ListGroupItem
+				style={{ backgroundColor: 'rgb(0,0,0,0)', width: '100%', left: '0.8%', borderRadius: '2rem', border: '0px' }}>
+				<ListGroup style={{ backgroundColor: 'rgb(0,0,0,0)' }}>
 					<ListGroupItem style={{ backgroundColor: 'darkred' }}>
-						<span style={{ float: 'left', marginTop: '0.2rem' ,color:'antiquewhite'}}>{`${user_u}: ${title}`}</span>
+						<span
+							style={{
+								float: 'left',
+								marginTop: '0.2rem',
+								color: 'antiquewhite',
+								fontFamily: 'Monaco',
+							}}>{`${user_u}: ${title}`}</span>
 						<Button style={{ marginLeft: '2rem' }} onClick={() => toggle_3(title)}>
 							Reply
 						</Button>
 						<Collapse isOpen={modal_3}>
-							<div style={{ background: 'none',color:'antiquewhite' }}>
+							<div style={{ background: 'none', color: 'antiquewhite', fontFamily: 'Monaco' }}>
 								<h4>Write Reply</h4>
 								<Form onSubmit={onSubmit_3}>
 									<FormGroup>
@@ -118,6 +124,7 @@ const Question = props => {
 														value="text"
 														onChange={text_3}
 														checked={iftext_3}
+														style={{ fontFamily: 'Monaco' }}
 													/>
 													Text
 												</label>
@@ -128,13 +135,19 @@ const Question = props => {
 														value="video"
 														onChange={video_3}
 														checked={!iftext_3}
+														style={{ fontFamily: 'Monaco' }}
 													/>
 													Video
 												</label>
 											</div>
 										</div>
 										{iftext_3 ? (
-											<Input type="textarea" value={description_u} onChange={createDes} />
+											<Input
+												type="textarea"
+												value={description_u}
+												onChange={createDes}
+												style={{ fontFamily: 'Monaco' }}
+											/>
 										) : (
 											<Record pdf_name={file} page_num={page} util_name={utilName} Ref={video_name} />
 										)}
@@ -155,11 +168,23 @@ const Question = props => {
 						({ user_q, question_name, isvideo_q, video_path_q, description_q }, idx) =>
 							matchquestion(title, question_name) &&
 							(isvideo_q ? (
-								<ShowVideo user={user} path={video_path_q} pdf_name={file} title={''} user_u={user_q} key={idx} />
+								<ShowVideo user={self} path={video_path_q} pdf_name={file} title={''} user_u={user_q} key={idx} />
 							) : (
-								<ListGroupItem key={idx} style={{backgroundColor:'rgb(0,0,0,0)', wordBreak: 'break-word' ,border:'solid',borderRadius:'1rem',borderColor:'antiquewhite',color:'antiquewhite',width:'90%',left:'6%'}}>
+								<ListGroupItem
+									key={idx}
+									style={{
+										backgroundColor: 'rgb(0,0,0,0)',
+										wordBreak: 'break-word',
+										border: 'solid',
+										borderRadius: '1rem',
+										borderColor: 'antiquewhite',
+										color: 'antiquewhite',
+										width: '90%',
+										left: '6%',
+										fontFamily: 'Monaco',
+									}}>
 									<div style={{ float: 'left' }}>{`${user_q}:`}</div>
-									<div>{description_q}</div>							
+									<div>{description_q}</div>
 								</ListGroupItem>
 							))
 					)}
@@ -168,7 +193,7 @@ const Question = props => {
 		);
 	if (comment_type) {
 		return isvideo ? (
-			<ShowVideo user={user} path={video_path} pdf_name={file} title={title} user_u={user_u} />
+			<ShowVideo user={self} path={video_path} pdf_name={file} title={title} user_u={user_u} />
 		) : (
 			<Showcontent title={title} description={description} user_u={user_u} />
 		);

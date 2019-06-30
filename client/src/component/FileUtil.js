@@ -8,6 +8,7 @@ import Question from './reply/Question';
 
 const FileUtil = props => {
 	const { page, user, file } = props;
+	const self = localStorage.getItem('name');
 	const { utilstate, dispatch } = useContext(utilContext);
 	const { utils } = utilstate;
 	const [utilName, setUtilName] = useState('');
@@ -18,7 +19,7 @@ const FileUtil = props => {
 	const [modal_1, setModal_1] = useState(false);
 	const [modal_2, setModal_2] = useState(false);
 	const [iftext_2, setIftext_2] = useState(true);
-
+	console.log(utils);
 	useEffect(() => {
 		axios
 			.get(`/api/utils/${file}/${page}`)
@@ -52,7 +53,7 @@ const FileUtil = props => {
 		e.preventDefault();
 		axios
 			.post('/api/utils', {
-				user: user,
+				user: self,
 				file: file,
 				page: page,
 				title: title,
@@ -91,7 +92,7 @@ const FileUtil = props => {
 		if (iftext_2) {
 			axios
 				.post('/api/utils', {
-					user: user,
+					user: self,
 					file: file,
 					page: page,
 					title: title,
@@ -109,7 +110,7 @@ const FileUtil = props => {
 		} else {
 			axios
 				.post('/api/utils', {
-					user: user,
+					user: self,
 					file: file,
 					page: page,
 					title: title,
@@ -132,26 +133,29 @@ const FileUtil = props => {
 
 	return (
 		<div className="col-md-4 Utilpdf_wrap">
-			<h3 style={{ color: 'antiquewhite' ,fontFamily:'標楷體' }}>新增項目</h3>
+			<h3 style={{ color: 'antiquewhite', fontFamily: '標楷體' }}>新增項目</h3>
 			<div className="row">
-				<Button className="col Utilpdf_btn" onClick={toggle_1} style={{fontFamily:'標楷體'}}>
+				<Button className="col Utilpdf_btn" onClick={toggle_1} style={{ fontFamily: '標楷體' }}>
 					問題
 				</Button>
-				<Button className="col Utilpdf_btn" onClick={toggle_2}style={{fontFamily:'標楷體'}}>
+				<Button className="col Utilpdf_btn" onClick={toggle_2} style={{ fontFamily: '標楷體' }}>
 					解釋
 				</Button>
 			</div>
 
 			<Collapse isOpen={modal_1}>
 				<div style={{ background: 'none' }}>
-					<h4 style={{color:'antiquewhite'}}>Write Question</h4>
+					<h4 style={{ color: 'antiquewhite' }}>Write Question</h4>
 					<Form onSubmit={onSubmit_1}>
 						<FormGroup>
-							<Label for="item" style={{ marginTop: '0.5rem',color:'antiquewhite' }}>
+							<Label for="item" style={{ marginTop: '0.5rem', color: 'antiquewhite' }}>
 								Question
 							</Label>
-							<Input type="text" id="item" value={title} onChange={createTitle} />
-							<p style={{ textAlign: 'left', height: '15px', marginTop: '0.5rem', color: 'darkred' }} ref={notitle} />
+							<Input type="text" id="item" value={title} onChange={createTitle} style={{ fontFamily: 'Monaco' }} />
+							<p
+								style={{ textAlign: 'left', height: '15px', marginTop: '0.5rem', color: 'darkred' }}
+								ref={notitle}
+							/>
 							<Button color="dark" style={{ margin: 'auto', width: '5rem' }} block>
 								Submit
 							</Button>
@@ -162,33 +166,53 @@ const FileUtil = props => {
 
 			<Collapse isOpen={modal_2}>
 				<div style={{ background: 'none' }}>
-					<h4 style={{color:'antiquewhite'}}>Write Explanation</h4>
+					<h4 style={{ color: 'antiquewhite' }}>Write Explanation</h4>
 					<Form onSubmit={onSubmit_2}>
 						<FormGroup>
-							<Label for="item" style={{color:'antiquewhite'}}>Title</Label>
-							<Input type="text" id="item" value={title} onChange={createTitle} />
-							<p style={{ textAlign: 'left', height: '10px', marginTop: '0.5rem', color: 'darkred' }} ref={notitle} />
-							<Label for="chooseinput" style={{color:'antiquewhite'}}>Choose input type</Label>
+							<Label for="item" style={{ color: 'antiquewhite' }}>
+								Title
+							</Label>
+							<Input type="text" id="item" value={title} onChange={createTitle} style={{ fontFamily: 'Monaco' }} />
+							<p
+								style={{ textAlign: 'left', height: '10px', marginTop: '0.5rem', color: 'darkred' }}
+								ref={notitle}
+							/>
+							<Label for="chooseinput" style={{ color: 'antiquewhite' }}>
+								Choose input type
+							</Label>
 							<div id="chooseinput">
 								<div className="radio">
-									<label style={{color:'antiquewhite'}}>
-										<input type="radio" name="inputtype" value="text" onChange={text_2} checked={iftext_2} />
+									<label style={{ color: 'antiquewhite' }}>
+										<input
+											type="radio"
+											name="inputtype"
+											value="text"
+											onChange={text_2}
+											checked={iftext_2}
+											style={{ fontFamily: 'Monaco' }}
+										/>
 										Text
 									</label>
-									<label style={{ marginLeft: '1rem',color:'antiquewhite' }}>
+									<label style={{ marginLeft: '1rem', color: 'antiquewhite' }}>
 										<input
 											type="radio"
 											name="inputtype"
 											value="video"
 											onChange={video_2}
 											checked={!iftext_2}
+											style={{ fontFamily: 'Monaco' }}
 										/>
 										Video
 									</label>
 								</div>
 							</div>
 							{iftext_2 ? (
-								<Input type="textarea" value={description_u} onChange={createDes} />
+								<Input
+									type="textarea"
+									value={description_u}
+									onChange={createDes}
+									style={{ fontFamily: 'Monaco' }}
+								/>
 							) : (
 								<Record pdf_name={file} page_num={page} util_name={utilName} Ref={video_name} />
 							)}
@@ -199,8 +223,8 @@ const FileUtil = props => {
 					</Form>
 				</div>
 			</Collapse>
-			
-			<ListGroup >
+
+			<ListGroup>
 				{utils.map(({ user_u, title, comment_type, _id, isvideo, video_path, description }, idx) => (
 					<Question
 						user_u={user_u}
@@ -212,6 +236,7 @@ const FileUtil = props => {
 						key={idx}
 						page={page}
 						user={user}
+						self={self}
 						file={file}
 						video_name={video_name}
 						description={description}
