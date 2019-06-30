@@ -16,7 +16,7 @@ var store = function(req, res, next) {
 				if (exists) {
 					cb(null, upload_path);
 				} else {
-					fs.mkdir(upload_path, err => {
+					fs.mkdirSync(upload_path, err => {
 						if (err) throw err;
 						cb(err, upload_path);
 					});

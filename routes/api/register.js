@@ -12,22 +12,27 @@ router.post('/', async (req, res) => {
 
 	var regex = /^\w*$/;
 	const checkUser = regex.exec(user);
+	var testuser = false;
 
 	if (checkUser === null) {
 		return res.status(400).json({ type: 'user', msg: 'Invalid username. ' });
 	}
 
-	await User.findOne({ user }).then(user => {
-		if (user) return res.status(400).json({ type: 'user', msg: 'User is already registered' });
+	await User.findOne({ user })
+	.then(user => {
+		if (user) testuser= true;
 	});
+
+	if(testuser) return res.status(400).json({ type: 'user', msg: 'User is already registered' });
 
 	if (password.length < 6) {
 		return res.status(400).json({ type: 'password', msg: 'Password must be at least 6 charater' });
 	} else {
+		console.log('in');
 		const upload_path = path.join(file_path, user, '/');
 		fs.exists(upload_path, exists => {
 			if (!exists) {
-				fs.mkdir(upload_path, err => {
+				fs.mkdirSync(upload_path, err => {
 					if (err) throw err;
 				});
 			}

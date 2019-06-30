@@ -14,7 +14,7 @@ const FileUtil = props => {
 	const [title, setTitle] = useState('');
 	const video_name = useRef('');
 	const notitle = useRef('');
-	const [description, setDescription] = useState('');
+	const [description_u, setDescription_u] = useState('');
 	const [modal_1, setModal_1] = useState(false);
 	const [modal_2, setModal_2] = useState(false);
 	const [iftext_2, setIftext_2] = useState(true);
@@ -37,7 +37,7 @@ const FileUtil = props => {
 	};
 
 	const createDes = e => {
-		setDescription(e.target.value);
+		setDescription_u(e.target.value);
 	};
 
 	const toggle_1 = () => {
@@ -66,7 +66,7 @@ const FileUtil = props => {
 				console.log(err);
 			});
 		setTitle('');
-		setDescription('');
+		setDescription_u('');
 		toggle_1();
 	};
 
@@ -97,7 +97,7 @@ const FileUtil = props => {
 					title: title,
 					comment_type: 2,
 					isvideo: false,
-					description: description,
+					description: description_u,
 				})
 				.then(res => {
 					console.log('success upload util');
@@ -126,7 +126,7 @@ const FileUtil = props => {
 				});
 		}
 		setTitle('');
-		setDescription('');
+		setDescription_u('');
 		toggle_2();
 	};
 
@@ -188,7 +188,7 @@ const FileUtil = props => {
 								</div>
 							</div>
 							{iftext_2 ? (
-								<Input type="textarea" value={description} onChange={createDes} />
+								<Input type="textarea" value={description_u} onChange={createDes} />
 							) : (
 								<Record pdf_name={file} page_num={page} util_name={utilName} Ref={video_name} />
 							)}
@@ -214,6 +214,7 @@ const FileUtil = props => {
 						user={user}
 						file={file}
 						video_name={video_name}
+						description={description}
 					/>
 				))}
 			</ListGroup>

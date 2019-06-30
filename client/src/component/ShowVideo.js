@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
 import axios from 'axios';
-import { ListGroupItem, Button, Modal } from 'reactstrap';
+import { ListGroupItem, Button, Modal, ListGroup } from 'reactstrap';
 import { videoContext } from '../context/videoIndex';
 import Video from './Video';
 
@@ -33,7 +33,7 @@ const ShowVideo = props => {
 	};
 
 	return (
-		<ListGroupItem style={{backgroundColor:'rgb(0,0,0,0)',border:'solid',borderRadius:'1rem',borderColor:'antiquewhite',color:'antiquewhite',width:'90%',left:'6%'}}>
+		<ListGroupItem style={{backgroundColor:'rgb(0,0,0,0)', border:'solid',borderRadius:'1rem',borderColor:'antiquewhite',color:'antiquewhite',width:'90%',left:'6%'}}>
 			<div style={{ float: 'left', fontSize: '1rem'}}>{`${user_u}  ${title}`}</div>
 			<Button style={{ marginLeft: '2rem' }} onClick={() => getVideo()}>
 				Watch
@@ -42,6 +42,7 @@ const ShowVideo = props => {
 				<Video videoURL={videoURL} />
 			</Modal>
 		</ListGroupItem>
+
 	);
 };
 
