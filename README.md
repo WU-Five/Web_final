@@ -56,7 +56,7 @@
 
 
 ### Demo影片連結
--   https://www.youtube.com/watch?v=Cyoa7Sz_9DY&feature=youtu.be&    fbclid=IwAR2OX47jmWTFkVVcQP1xVUITN088njpyopZLIZQ1CF34HEZ9BbcvId0uK2k
+-   https://youtu.be/Cyoa7Sz_9DY
 
 
 ### Github連結
