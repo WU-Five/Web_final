@@ -3,9 +3,9 @@ const router = express.Router();
 
 const User = require('../../models/User');
 
-router.post('/', async (req, res) => {
+router.post('/', (req, res) => {
 	var { user, password } = req.body;
-	await User.findOne({ user }).then(user => {
+	User.findOne({ user }).then(user => {
 		if (!user) return res.status(400).json({ type: 'user', msg: 'User Does not exist' });
 		else {
 			if (password === user.password) {

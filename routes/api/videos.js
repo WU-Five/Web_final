@@ -24,7 +24,7 @@ const store = function(req, res, next) {
 		},
 		filename: function(req, file, cb) {
 			cb(null, Date.now() + path.extname(file.originalname));
-		}
+		},
 	});
 
 	var upload = multer({ storage: storage }).any();
@@ -94,7 +94,7 @@ router.post('/:user/:pdf_name/:page_num/:util_name', store, (req, res) => {
 		user: req.params.user,
 		pdf_name: req.params.pdf_name,
 		page_num: req.params.page_num,
-		util_name: req.params.util_name
+		util_name: req.params.util_name,
 	});
 
 	newVideo.save().then(file => res.json(file));
@@ -104,7 +104,7 @@ router.post('/:user/:pdf_name/:page_num/:util_name', store, (req, res) => {
 // // @desc    DELETE video File
 // // @access  Private
 router.delete('/:user/:pdf_name/:path', (req, res) => {
-	const delete_path = path.join(video_path, req.params.user, '/',req.params.pdf_name, '/', req.params.path);
+	const delete_path = path.join(video_path, req.params.user, '/', req.params.pdf_name, '/', req.params.path);
 
 	fs.unlink(delete_path, err => {
 		if (err) {

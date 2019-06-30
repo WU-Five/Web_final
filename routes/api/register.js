@@ -6,7 +6,7 @@ const fs = require('fs');
 const User = require('../../models/User');
 const file_path = path.join(__dirname, '../../video_File/');
 
-router.post('/', async (req, res) => {
+router.post('/', (req, res) => {
 	var { user, password } = req.body;
 	if (!user) return res.status(400).json({ type: 'user', msg: 'User cannot be empty' });
 
