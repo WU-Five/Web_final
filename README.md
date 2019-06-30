@@ -9,7 +9,7 @@
     `git clone https://github.com/WU-Five/Web_final.git`
 * Install
     `npm install`
-    `npm install --prefix client`
+    `cd client && npm install`
 * Run
     `npm run dev`
 
