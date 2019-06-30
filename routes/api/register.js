@@ -18,12 +18,11 @@ router.post('/', (req, res) => {
 		return res.status(400).json({ type: 'user', msg: 'Invalid username. ' });
 	}
 
-	await User.findOne({ user })
-	.then(user => {
-		if (user) testuser= true;
+	User.findOne({ user }).then(user => {
+		if (user) testuser = true;
 	});
 
-	if(testuser) return res.status(400).json({ type: 'user', msg: 'User is already registered' });
+	if (testuser) return res.status(400).json({ type: 'user', msg: 'User is already registered' });
 
 	if (password.length < 6) {
 		return res.status(400).json({ type: 'password', msg: 'Password must be at least 6 charater' });
