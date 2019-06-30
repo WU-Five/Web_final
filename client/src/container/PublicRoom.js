@@ -9,6 +9,7 @@ const PublicRoom = () => {
 	useEffect(() => {
 		axios.get(`/api/users`).then(res => {
 			if (!search) {
+				console.log(res)
 				setUsers(user => res.data);
 			} else {
 				setUsers(user => res.data.filter(user => user.user.includes(search)));
