@@ -11,6 +11,7 @@
     `npm install`  
     `cd client && npm install`
 * Run  
+    (建議)將`config/default.json`中的mongoURI換成自己的
     `npm run dev`
 
 ### 其他說明
