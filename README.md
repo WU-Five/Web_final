@@ -16,7 +16,13 @@
 -   Run
     `npm run dev`
 
-### 其他說明
+-   操作
+-   1.右上角可以註冊登入
+-   2.登入後有SelfRoom和PublicRoom
+-   3.SelfRoom可以上傳pdf檔
+-   4.PublicRoom可以看到所有人的上傳pdf檔，並可點選進入查看
+-   5.查看檔案室左邊可以選擇提問或是發註釋
+-   6.回答提問或發註釋都可選擇使用文字或是螢幕錄影的方式
 
 ### 使用與參考之框架/模組/原始碼
 
@@ -48,6 +54,10 @@
 -   **吳軍霆**
     這次期末兩個學長都超級強大，我看到了很多很厲害的寫法與邏輯，試著去理解去加入去做一些自己能力夠的部分，從剛開始的不熟悉，到慢慢由style的過程中去了解學長前後端的連結以及架構，不過這次很深刻的體會了各種CSS的功能，各式各樣很fancy的外觀等等，同時也花了不少時間在研究reactstrap這個套件的各種物件的各自所能夠加上去的東西，學到很多東西。
 
-### 使用之第三方套件、框架、程式碼
 
-### Demo 影片連結
+### Demo影片連結
+-   https://www.youtube.com/watch?v=Cyoa7Sz_9DY&feature=youtu.be&    fbclid=IwAR2OX47jmWTFkVVcQP1xVUITN088njpyopZLIZQ1CF34HEZ9BbcvId0uK2k
+
+
+### Github連結
+-   https://github.com/WU-Five/Web_final
