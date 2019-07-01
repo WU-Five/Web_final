@@ -11,7 +11,7 @@ const FileUtil = props => {
 	const self = localStorage.getItem('name');
 	const { utilstate, dispatch } = useContext(utilContext);
 	const { utils } = utilstate;
-	const [utilName, setUtilName] = useState('');
+	const [utilName, setUtilName] = useState(Date.now());
 	const [title, setTitle] = useState('');
 	const video_name = useRef('');
 	const notitle = useRef('');
@@ -27,6 +27,7 @@ const FileUtil = props => {
 				dispatch({ type: 'GET_UTILS', payload: res.data });
 			})
 			.catch(err => console.log(err));
+		createName();
 	}, [dispatch, file, page]);
 
 	const createName = () => {
@@ -86,7 +87,7 @@ const FileUtil = props => {
 	const video_2 = e => {
 		setIftext_2(false);
 	};
-
+	console.log(utilName);
 	const onSubmit_2 = e => {
 		e.preventDefault();
 		if (iftext_2) {

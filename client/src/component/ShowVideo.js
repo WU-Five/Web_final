@@ -9,7 +9,7 @@ const ShowVideo = props => {
 	const { dispatch } = useContext(videoContext);
 	const [isOpen, setIsOpen] = useState(false);
 	const [videoURL, setVideoURL] = useState(null);
-
+	console.log(path);
 	const deleteFile = () => {
 		axios
 			.delete(`/api/videos/${user}/${pdf_name}/${path}`)

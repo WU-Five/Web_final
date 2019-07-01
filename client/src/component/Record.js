@@ -13,6 +13,7 @@ const Record = props => {
 	const [uploadDone, setUploadDone] = useState(false);
 	// const { userstate } = useContext(userContext);
 	const { videoState, dispatch } = useContext(videoContext);
+	console.log(`/api/videos/${localStorage.getItem('name')}/${pdf_name}/${page_num}/${util_name}`);
 
 	useEffect(() => {
 		if (recordVideo) {
